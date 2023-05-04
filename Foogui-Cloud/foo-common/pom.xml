@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.foogui</groupId>
+        <artifactId>foogui-cloud</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <groupId>com.foogui</groupId>
+    <artifactId>foo-common</artifactId>
+    <version>${parent.version}</version>
+    <modules>
+        <module>foo-common-log</module>
+        <module>foo-common-core</module>
+        <module>foo-common-dao</module>
+        <module>foo-common-utils</module>
+    </modules>
+
+    <name>foo-common</name>
+    <packaging>pom</packaging>
+    <description>Foo-Common模块</description>
+
+
+    <dependencies>
+
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.foogui</groupId>
+                <artifactId>foo-common-core</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.foogui</groupId>
+                <artifactId>foo-common-utils</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.foogui</groupId>
+                <artifactId>foo-common-log</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.foogui</groupId>
+                <artifactId>foo-common-dao</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

@@ -1,0 +1,21 @@
+#server:
+#  port: 9000
+#spring:
+#  application:
+#    name: api-gateway
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848 #配置Nacos地址
+#    gateway:
+#      routes:
+#        - id: service1
+#          uri: https://www.ebanma.com/
+#          predicates:
+#            - Path=/banma
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3308/foo-modules?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: root
