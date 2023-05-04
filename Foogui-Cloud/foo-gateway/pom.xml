@@ -41,6 +41,9 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
+
+
+
         <!--loadbalancer负载均衡-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

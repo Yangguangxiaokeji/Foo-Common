@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 public class LogAspect {
 
+
     @Autowired
     private LogAsyncTask logAsyncTask;
 

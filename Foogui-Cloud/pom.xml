@@ -35,10 +35,17 @@
         <guava.version>31.1-jre</guava.version>
         <hutool.version>5.8.9</hutool.version>
         <druid-spring-boot-starter.version>1.2.16</druid-spring-boot-starter.version>
+        <fastjson.version>2.0.25</fastjson.version>
+
     </properties>
 
     <!--所有模块的公共依赖-->
     <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
         <!--Lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>

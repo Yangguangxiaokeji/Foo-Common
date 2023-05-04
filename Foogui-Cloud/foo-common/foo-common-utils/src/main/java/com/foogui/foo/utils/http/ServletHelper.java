@@ -2,6 +2,7 @@ package com.foogui.foo.utils.http;
 
 import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.enums.ResponseCode;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -19,7 +20,10 @@ import java.io.IOException;
  * @author Foogui
  * @date 2023/05/02
  */
+@Slf4j
 public class ServletHelper {
+
+
     /**
      * 获取request参数
      */
@@ -82,5 +86,7 @@ public class ServletHelper {
             e.printStackTrace();
         }
     }
+
+
 
 }

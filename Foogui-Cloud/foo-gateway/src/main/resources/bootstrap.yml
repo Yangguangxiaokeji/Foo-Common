@@ -20,4 +20,7 @@ spring:
           group: DEFAULT_GROUP
           data-id: common.yaml
           refresh: true
-
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 让gateway可以发现nacos中的微服务
