@@ -17,6 +17,7 @@
         <module>foo-common-core</module>
         <module>foo-common-dao</module>
         <module>foo-common-utils</module>
+        <module>foo-common-security</module>
     </modules>
 
     <name>foo-common</name>

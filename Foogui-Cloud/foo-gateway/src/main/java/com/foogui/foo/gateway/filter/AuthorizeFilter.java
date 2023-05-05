@@ -1,7 +1,7 @@
 package com.foogui.foo.gateway.filter;
 
 import com.foogui.foo.common.core.constant.HttpConstant;
-import com.foogui.foo.common.core.exception.AuthorizationException;
+import com.foogui.foo.common.core.exception.AuthException;
 import com.foogui.foo.gateway.utils.WebFluxUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -39,12 +39,18 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         if (StringUtils.isBlank(token)) {
             log.info("token不能为空");
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
-            return WebFluxUtils.webFluxWrite(response, exchange,new AuthorizationException("token不能为空"));
+            return WebFluxUtils.webFluxWrite(response, exchange,new AuthException("token不能为空"));
         }
-        // 解析token是否合法
-
-
+        verifyToken(token);
         return chain.filter(exchange);
+    }
+
+    /**
+     * 验证token是否合法
+     *
+     * @param token 令牌
+     */
+    private void verifyToken(String token) {
     }
 
     /**
