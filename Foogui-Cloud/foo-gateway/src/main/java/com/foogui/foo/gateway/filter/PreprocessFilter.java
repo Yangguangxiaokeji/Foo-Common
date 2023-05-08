@@ -1,5 +1,6 @@
 package com.foogui.foo.gateway.filter;
 
+import com.foogui.foo.common.core.constant.FilterOrderConstant;
 import com.foogui.foo.common.core.constant.HttpConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -24,7 +25,7 @@ public class PreprocessFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        // 内部请求来源参数清除
+        // 请求数据清洗，避免伪装成内部调用请求
         ServerHttpRequest request = exchange.getRequest().mutate().headers(header -> {
             header.remove(HttpConstant.REQUEST_SOURCE);
         }).build();
@@ -34,12 +35,14 @@ public class PreprocessFilter implements GlobalFilter, Ordered {
         String newPath = StringUtils.substring(rawPath, StringUtils.ordinalIndexOf(rawPath, "/" , 2));
         ServerHttpRequest newRequest = request.mutate().path(newPath).build();
         exchange.getAttributes().put(GATEWAY_REQUEST_URL_ATTR, newRequest.getURI());
-
-        return chain.filter(exchange.mutate().request(newRequest.mutate().build()).build());
+        // 添加请求头，防止请求绕过网关直接访问服务
+        ServerHttpRequest.Builder finalMutate = newRequest.mutate();
+        finalMutate.header(HttpConstant.FROM_WHERE,HttpConstant.FROM_WHERE_VALUE);
+        return chain.filter(exchange.mutate().request(finalMutate.build()).build());
     }
 
     @Override
     public int getOrder() {
-        return -100;
+        return FilterOrderConstant.PREPROCESS_FILTER_ORDER;
     }
 }

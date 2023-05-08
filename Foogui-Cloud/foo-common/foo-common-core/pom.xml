@@ -19,7 +19,10 @@
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-dao</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

@@ -2,22 +2,22 @@ package com.foogui.foo.gateway.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.gateway.enums.GatewayErrorCode;
 import com.foogui.foo.gateway.utils.WebFluxUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;
+import org.springframework.cloud.gateway.support.NotFoundException;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.server.ServerErrorException;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * 网关异常处理器
+ * 网关全局异常处理器
  *
  * @author Foogui
  * @date 2023/05/04
@@ -25,7 +25,7 @@ import reactor.core.publisher.Mono;
 @Component
 @Order(-1) // 保证优先级高于默认的 Spring Cloud Gateway 的 ErrorWebExceptionHandler 实现
 @Slf4j
-public class GatewayExceptionHandler  implements ErrorWebExceptionHandler {
+public class GatewayExceptionHandler implements ErrorWebExceptionHandler {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -34,7 +34,7 @@ public class GatewayExceptionHandler  implements ErrorWebExceptionHandler {
     public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {
         ServerHttpResponse response = exchange.getResponse();
         // 已经 commit，则直接返回异常
-        if (response.isCommitted()){
+        if (response.isCommitted()) {
             return Mono.error(ex);
         }
 
@@ -46,10 +46,7 @@ public class GatewayExceptionHandler  implements ErrorWebExceptionHandler {
         }
         //  TODO 选择性保存日志
 
-
-        response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
-        // 设置 body
-        return WebFluxUtils.webFluxWrite(response, exchange, ex);
+        return WebFluxUtils.webFluxWrite(response, exchange, result);
     }
 
     /**
@@ -61,9 +58,8 @@ public class GatewayExceptionHandler  implements ErrorWebExceptionHandler {
      */
     private Result<?> defaultExceptionHandler(ServerWebExchange exchange, Throwable ex) {
         ServerHttpRequest request = exchange.getRequest();
-        log.error("[responseStatusExceptionHandler][uri({}:{}) 发生异常:{}]", request.getURI(), request.getMethod(), ex.getMessage());
-        return Result.fail(ex,ex.getCause());
-
+        log.error("[defaultExceptionHandler][uri({}:{}) 发生异常:{}]", request.getURI(), request.getMethod(), ex.getMessage());
+        return Result.fail(ex, ex.getMessage());
     }
 
 
@@ -77,10 +73,13 @@ public class GatewayExceptionHandler  implements ErrorWebExceptionHandler {
     private Result<?> responseStatusExceptionHandler(ServerWebExchange exchange, ResponseStatusException ex) {
         ServerHttpRequest request = exchange.getRequest();
         log.error("[responseStatusExceptionHandler][uri({}:{}) 发生异常:{}]", request.getURI(), request.getMethod(), ex.getMessage());
-        // Todo...这里可以做更精细的处理
-        if (ex.getRawStatusCode()==GatewayErrorCode.NACOS_ERROR.getCode()){
-            return Result.fail(ex,"nacos发生错误");
+        if (ex instanceof NotFoundException) {
+            return Result.fail(ex, "服务未找到");
+        }else if (ex instanceof ServerErrorException){
+            return Result.fail(ex, "服务器发生错误");
         }
-        return Result.fail(ex,ex.getReason());
+        // Todo...这里可以对ResponseStatusException异常做更精细的处理
+        return Result.fail(ex, ex.getReason());
+
     }
 }

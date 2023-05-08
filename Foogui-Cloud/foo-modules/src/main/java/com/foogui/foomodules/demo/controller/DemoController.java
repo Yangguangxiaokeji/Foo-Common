@@ -14,4 +14,10 @@ public class DemoController {
     public Result<String> test(@PathVariable("id") Long id){
         return Result.success();
     }
+
+    @GetMapping("/black")
+
+    public Result<String> black(){
+        return Result.success();
+    }
 }

@@ -74,4 +74,7 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> fail() {
         return fail(null, null);
     }
+    public static <T> Result<T> fail(T message) {
+        return fail(null, message);
+    }
 }

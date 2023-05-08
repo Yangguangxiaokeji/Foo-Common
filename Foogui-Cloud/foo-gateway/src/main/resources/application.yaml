@@ -19,3 +19,4 @@
 #    url: jdbc:mysql://localhost:3308/foo-modules?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
 #    username: root
 #    password: root
+

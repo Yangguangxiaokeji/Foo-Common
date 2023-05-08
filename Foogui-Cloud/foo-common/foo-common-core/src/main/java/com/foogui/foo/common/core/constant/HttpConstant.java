@@ -9,6 +9,9 @@ public class HttpConstant {
     public static final String INNER="inner";
     public static final String Authorization="Authorization";
 
+    public static final String FROM_WHERE="from-where";
+    public static final String FROM_WHERE_VALUE="gateway";
+
 
 
 }

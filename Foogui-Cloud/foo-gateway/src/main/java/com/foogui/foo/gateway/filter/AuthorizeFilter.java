@@ -1,6 +1,8 @@
 package com.foogui.foo.gateway.filter;
 
+import com.foogui.foo.common.core.constant.FilterOrderConstant;
 import com.foogui.foo.common.core.constant.HttpConstant;
+import com.foogui.foo.common.core.domain.Result;
 import com.foogui.foo.common.core.exception.AuthException;
 import com.foogui.foo.gateway.utils.WebFluxUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +41,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         if (StringUtils.isBlank(token)) {
             log.info("token不能为空");
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
-            return WebFluxUtils.webFluxWrite(response, exchange,new AuthException("token不能为空"));
+            return WebFluxUtils.webFluxWrite(response, exchange, Result.fail(new AuthException("token不能为空")));
         }
         verifyToken(token);
         return chain.filter(exchange);
@@ -71,6 +73,6 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
 
     @Override
     public int getOrder() {
-        return 0;
+        return FilterOrderConstant.AUTHORIZE_FILTER_ORDER;
     }
 }
