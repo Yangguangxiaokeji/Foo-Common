@@ -14,4 +14,5 @@ public class FilterOrderConstant {
 
     public static final int PASSWORD_FILTER_ORDER=-30;
     public static final int AUTHORIZE_FILTER_ORDER=0;
+    public static final int CHECK_CODE_FILTER = 100;
 }

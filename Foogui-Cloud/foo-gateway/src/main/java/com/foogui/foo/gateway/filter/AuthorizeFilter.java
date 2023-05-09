@@ -21,7 +21,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class AuthorizeFilter implements GlobalFilter, Ordered {
 
-    private final String[] skipAuthUrls = {"/login", "/logout", "/register", "/redirect"};
+    private final String[] skipAuthUrls = {"/auth/login", "/auth/logout", "/auth/register", "/auth/redirect"};
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -32,6 +32,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         String url = request.getURI().getPath();
         // 跳过不需要验证的路径
         if (null != skipAuthUrls && isSkipUrl(url)) {
+
             return chain.filter(exchange);
         }
 

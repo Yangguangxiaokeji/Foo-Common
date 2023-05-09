@@ -11,6 +11,9 @@ public class HttpConstant {
 
     public static final String FROM_WHERE="from-where";
     public static final String FROM_WHERE_VALUE="gateway";
+    public static final String CODE_KEY="codeKey";
+
+
 
 
 

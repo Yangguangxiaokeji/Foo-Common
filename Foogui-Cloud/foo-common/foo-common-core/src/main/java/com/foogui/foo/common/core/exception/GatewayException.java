@@ -1,6 +1,6 @@
 package com.foogui.foo.common.core.exception;
 
-public class GatewayException extends RuntimeException{
+public class GatewayException extends RuntimeException  {
     public GatewayException() {
         super();
     }

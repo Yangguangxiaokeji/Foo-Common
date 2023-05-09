@@ -1,7 +1,6 @@
 package com.foogui.foo.gateway.filter;
 
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.common.core.exception.GatewayException;
 import com.foogui.foo.gateway.utils.WebFluxUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -27,7 +26,7 @@ public class BlackListGatewayFilterFactory extends AbstractGatewayFilterFactory<
         return (exchange, chain) -> {
             String url = exchange.getRequest().getURI().getPath();
             if (config.checkUrl(url, exchange)) {
-                WebFluxUtils.webFluxWrite(exchange.getResponse(), exchange, Result.fail(new GatewayException("路径在黑名单中，无法访问")));
+                WebFluxUtils.webFluxWrite(exchange.getResponse(), exchange, Result.fail("路径在黑名单中，无法访问"));
             }
             return chain.filter(exchange);
         };

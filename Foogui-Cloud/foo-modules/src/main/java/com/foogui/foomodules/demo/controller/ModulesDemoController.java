@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/demo")
-public class DemoController {
+public class ModulesDemoController {
 
     @GetMapping("/test/{id}")
     @Log(description = "Controller测试",action = Action.INSERT)
@@ -16,8 +16,9 @@ public class DemoController {
     }
 
     @GetMapping("/black")
-
     public Result<String> black(){
         return Result.success();
     }
+
+
 }
