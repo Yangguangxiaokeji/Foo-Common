@@ -1,4 +1,4 @@
-package com.foogui.foo.common.core.domain;
+package com.foogui.foo.common.dao.domain;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Getter;

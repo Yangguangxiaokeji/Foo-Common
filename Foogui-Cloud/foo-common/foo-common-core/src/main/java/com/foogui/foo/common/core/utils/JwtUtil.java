@@ -11,6 +11,7 @@ import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.foogui.foo.common.core.constant.MessageStoreConstant;
 import com.foogui.foo.common.core.constant.RedisConstant;
+import com.foogui.foo.common.core.exception.AuthException;
 import org.springframework.stereotype.Component;
 
 import java.security.interfaces.RSAPrivateKey;
@@ -25,6 +26,7 @@ public class JwtUtil {
 
     private String publicKey=MessageStoreConstant.PUBLIC_KEY;
 
+
     public String createJwtToken(Map<String, String> payload, int calendarField, int amount){
         //设置过期时间
         Calendar calendar = Calendar.getInstance();
@@ -32,7 +34,7 @@ public class JwtUtil {
         //创建builder
         JWTCreator.Builder builder = JWT.create();
         //设置载荷
-        payload.forEach((k,v)->builder.withClaim(k,v));
+        payload.forEach(builder::withClaim);
         //根据私钥创建RSA对象
         RSA rsa = new RSA(privateKey, null);
         //获取私钥对象
@@ -57,15 +59,14 @@ public class JwtUtil {
             DecodedJWT decodedJWT = jwtVerifier.verify(token);
             return decodedJWT.getClaim(RedisConstant.LOGIN_TOKEN).asString();
         }catch (TokenExpiredException e){
-            System.out.println("token过期:");
+            throw new AuthException("token过期");
         }catch (SignatureVerificationException e){
-            System.out.println("无效签名");
+            throw new AuthException("无效签名");
         }catch (AlgorithmMismatchException e){
-            System.out.println("算法不一致");
+            throw new AuthException("算法不一致");
         } catch (Exception e){
-            System.out.println("token无效");
+            throw new AuthException("token无效");
         }
-        return null;
     }
 
 }

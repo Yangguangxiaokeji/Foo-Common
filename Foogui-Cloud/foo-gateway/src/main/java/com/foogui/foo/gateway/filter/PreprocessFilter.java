@@ -25,9 +25,9 @@ public class PreprocessFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        // 请求数据清洗，避免伪装成内部调用请求
+        // 请求头数据清洗，避免伪装header信息而直接绕过网关访问服务
         ServerHttpRequest request = exchange.getRequest().mutate().headers(header -> {
-            header.remove(HttpConstant.REQUEST_SOURCE);
+            header.remove(HttpConstant.FROM_WHERE);
         }).build();
         // 重写StripPrefix
         ServerWebExchangeUtils.addOriginalRequestUrl(exchange, request.getURI());

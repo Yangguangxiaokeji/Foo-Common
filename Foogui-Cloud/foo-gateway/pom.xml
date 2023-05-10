@@ -21,6 +21,11 @@
             <artifactId>foo-common-core</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-common-dao</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
         <!-- nacos服务注册 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

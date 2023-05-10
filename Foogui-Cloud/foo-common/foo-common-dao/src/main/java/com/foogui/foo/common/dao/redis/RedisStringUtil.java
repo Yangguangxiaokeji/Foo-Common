@@ -6,7 +6,6 @@ import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
-import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -19,12 +18,12 @@ import java.util.concurrent.TimeUnit;
  * @author Foogui
  * @date 2023/05/09
  */
-@Component
-public class RedisUtil {
+
+public class RedisStringUtil {
     private final StringRedisTemplate redisTemplate;
 
     @Autowired
-    public RedisUtil(StringRedisTemplate redisTemplate) {
+    public RedisStringUtil(StringRedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 

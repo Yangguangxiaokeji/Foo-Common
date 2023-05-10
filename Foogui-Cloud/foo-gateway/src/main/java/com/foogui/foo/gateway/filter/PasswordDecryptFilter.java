@@ -1,4 +1,4 @@
 package com.foogui.foo.gateway.filter;
 
-public class PasswordFilter {
+public class PasswordDecryptFilter {
 }

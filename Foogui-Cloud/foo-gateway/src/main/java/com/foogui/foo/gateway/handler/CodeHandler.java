@@ -5,7 +5,7 @@ import cn.hutool.captcha.LineCaptcha;
 import cn.hutool.captcha.generator.RandomGenerator;
 import cn.hutool.core.lang.UUID;
 import com.foogui.foo.common.core.constant.RedisConstant;
-import com.foogui.foo.common.dao.redis.RedisUtil;
+import com.foogui.foo.common.dao.redis.RedisStringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 public class CodeHandler implements HandlerFunction<ServerResponse> {
 
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisStringUtil redisStringUtil;
 
     @Override
     public Mono<ServerResponse> handle(ServerRequest request) {
@@ -43,11 +43,11 @@ public class CodeHandler implements HandlerFunction<ServerResponse> {
         lineCaptcha.createCode();
         String codeKey=request.headers().firstHeader("codeKey");
         // 刷新token
-        if (StringUtils.isNotBlank(codeKey) && redisUtil.hasKey(codeKey)){
-            redisUtil.setEx(codeKey,lineCaptcha.getCode(),60L, TimeUnit.SECONDS);
+        if (StringUtils.isNotBlank(codeKey) && redisStringUtil.hasKey(codeKey)){
+            redisStringUtil.setEx(codeKey,lineCaptcha.getCode(),60L, TimeUnit.SECONDS);
         }else{
             codeKey = RedisConstant.CAPTCHA_LOGIN + UUID.fastUUID().toString(true);
-            redisUtil.setEx(codeKey,lineCaptcha.getCode(),60L, TimeUnit.SECONDS);
+            redisStringUtil.setEx(codeKey,lineCaptcha.getCode(),60L, TimeUnit.SECONDS);
         }
 
 

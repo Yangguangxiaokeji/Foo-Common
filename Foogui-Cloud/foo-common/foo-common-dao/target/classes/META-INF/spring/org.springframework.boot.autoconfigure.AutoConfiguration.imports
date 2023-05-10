@@ -1,1 +1,2 @@
-com.foogui.foo.common.dao.redis.RedisUtil
+com.foogui.foo.common.dao.redis.RedisStringUtil
+com.foogui.foo.common.dao.redis.RedisObjectUtil

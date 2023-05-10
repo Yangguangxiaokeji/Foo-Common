@@ -1,6 +1,6 @@
 package com.foogui.foo.common.log.domain;
 
-import com.foogui.foo.common.core.domain.BaseEntity;
+import com.foogui.foo.common.dao.domain.BaseEntity;
 import com.foogui.foo.common.log.enums.Action;
 import lombok.Data;
 
