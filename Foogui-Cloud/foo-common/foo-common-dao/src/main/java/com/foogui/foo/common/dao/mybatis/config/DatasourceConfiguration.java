@@ -1,4 +1,4 @@
-package com.foogui.foo.common.dao.config;
+package com.foogui.foo.common.dao.mybatis.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;

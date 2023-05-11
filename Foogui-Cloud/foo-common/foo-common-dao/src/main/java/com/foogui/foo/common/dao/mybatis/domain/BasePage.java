@@ -1,4 +1,4 @@
-package com.foogui.foo.common.core.domain;
+package com.foogui.foo.common.dao.mybatis.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
-public class PageQuery<T> implements Serializable {
+public class BasePage implements Serializable {
 
     private static final long serialVersionUID = 2385564691641233828L;
 
@@ -21,8 +21,7 @@ public class PageQuery<T> implements Serializable {
 
     private int pageSize = 10;
 
-    /**
-     * 动态查询条件
-     */
-    private T condition;
+    private String orderBy;
+
+
 }

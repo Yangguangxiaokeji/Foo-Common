@@ -1,4 +1,4 @@
-package com.foogui.foo.common.core.domain;
+package com.foogui.foo.common.dao.mybatis.domain;
 
 import lombok.Getter;
 import lombok.Setter;

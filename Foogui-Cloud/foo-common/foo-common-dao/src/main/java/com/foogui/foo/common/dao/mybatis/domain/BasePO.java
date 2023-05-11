@@ -1,8 +1,7 @@
-package com.foogui.foo.common.dao.domain;
+package com.foogui.foo.common.dao.mybatis.domain;
 
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,9 +12,8 @@ import java.time.LocalDateTime;
  * @author Foogui
  * @date 2023/05/02
  */
-@Getter
-@Setter
-public class BaseEntity implements Serializable {
+@Data
+public class BasePO implements Serializable {
 
     private static final long serialVersionUID = 6983027423601649332L;
 
