@@ -17,6 +17,7 @@
         <module>foo-common</module>
         <module>foo-gateway</module>
         <module>foo-api</module>
+        <module>foo-generator</module>
     </modules>
 
     <properties>
@@ -67,6 +68,11 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.3.2</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>

@@ -1,13 +1,13 @@
 package com.foogui.foo.common.log.domain;
 
-import com.foogui.foo.common.dao.domain.BaseEntity;
+import com.foogui.foo.common.dao.mybatis.domain.BasePO;
 import com.foogui.foo.common.log.enums.Action;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-public class LogPO extends BaseEntity implements Serializable {
+public class LogPO extends BasePO implements Serializable {
 
     private static final long serialVersionUID = -722166392700755402L;
 
