@@ -4,27 +4,34 @@ import com.alibaba.fastjson2.JSON;
 import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.domain.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * 防止绕过网关直接访问微服务
+ *
+ * @author Foogui
+ * @date 2023/05/12
+ */
 @Slf4j
 public class GatewayFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
-        System.out.println("init gateway filter");
+        log.info("GatewayFilter is Initialized");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, javax.servlet.FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest)servletRequest;
-        String gateway = request.getHeader(HttpConstant.FROM_WHERE);
-        if(gateway == null || !gateway.equals(HttpConstant.FROM_WHERE_VALUE)){
-            System.out.println("======无权访问=======");
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        String fromWhere = request.getHeader(HttpConstant.FROM_WHERE);
+        if (StringUtils.isBlank(fromWhere) ||
+                !StringUtils.equalsAnyIgnoreCase(fromWhere, HttpConstant.INNER, HttpConstant.OUTER)) {
             returnJson(servletResponse, JSON.toJSONString(Result.fail("不能直接绕过网关访问服务")));
             return;
         }

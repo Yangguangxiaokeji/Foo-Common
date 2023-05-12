@@ -7,6 +7,7 @@ public class HttpConstant {
     public static final String REQUEST_SOURCE ="request-source";
 
     public static final String INNER="inner";
+    public static final String OUTER="outer";
     public static final String Authorization="Authorization";
 
     public static final String FROM_WHERE="from-where";

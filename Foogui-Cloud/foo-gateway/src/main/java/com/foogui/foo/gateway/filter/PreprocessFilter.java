@@ -37,7 +37,7 @@ public class PreprocessFilter implements GlobalFilter, Ordered {
         exchange.getAttributes().put(GATEWAY_REQUEST_URL_ATTR, newRequest.getURI());
         // 添加请求头，防止请求绕过网关直接访问服务
         ServerHttpRequest.Builder finalMutate = newRequest.mutate();
-        finalMutate.header(HttpConstant.FROM_WHERE,HttpConstant.FROM_WHERE_VALUE);
+        finalMutate.header(HttpConstant.FROM_WHERE,HttpConstant.OUTER);
         return chain.filter(exchange.mutate().request(finalMutate.build()).build());
     }
 

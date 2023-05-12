@@ -34,6 +34,7 @@ public class DemoController {
         return demoService.save(demoVO.convert2PO()) ? Result.success("新增成功") : Result.fail("新增失败");
     }
 
+
     @PostMapping("/update")
     public Result<String> update(@RequestBody DemoVO demoVO){
         return demoService.updateById(demoVO.convert2PO()) ? Result.success("修改成功") : Result.fail("修改失败");
