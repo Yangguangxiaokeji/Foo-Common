@@ -5,6 +5,8 @@ import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.domain.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +20,7 @@ import java.io.PrintWriter;
  * @date 2023/05/12
  */
 @Slf4j
+@Order(Ordered.HIGHEST_PRECEDENCE+1)
 public class GatewayFilter implements Filter {
 
     @Override
@@ -36,6 +39,7 @@ public class GatewayFilter implements Filter {
             return;
         }
         filterChain.doFilter(servletRequest, servletResponse);
+
     }
 
     @Override
