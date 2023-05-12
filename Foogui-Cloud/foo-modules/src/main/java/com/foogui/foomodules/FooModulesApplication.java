@@ -1,6 +1,6 @@
 package com.foogui.foomodules;
 
-import com.foogui.foo.utils.gateway.annotation.EnableOnlyFromGateway;
+import com.foogui.foo.common.core.annotation.EnableOnlyFromGateway;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

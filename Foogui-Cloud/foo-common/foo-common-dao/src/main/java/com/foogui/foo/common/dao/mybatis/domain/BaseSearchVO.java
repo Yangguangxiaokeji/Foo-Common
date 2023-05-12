@@ -6,14 +6,14 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * 分页查询条件
+ * 分页模型
  *
  * @author Foogui
  * @date 2023/05/04
  */
 @Getter
 @Setter
-public class BasePage implements Serializable {
+public class BaseSearchVO implements Serializable {
 
     private static final long serialVersionUID = 2385564691641233828L;
 

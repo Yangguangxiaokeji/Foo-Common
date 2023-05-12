@@ -5,10 +5,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FooSearchVO<T> extends BasePage{
+public class SearchCondition<T> extends BaseSearchVO{
     /**
      * 动态查询条件
      */
     private T context;
+
 
 }

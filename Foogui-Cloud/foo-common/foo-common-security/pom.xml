@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>com.foogui</groupId>
-            <artifactId>foo-common-utils</artifactId>
+            <artifactId>foo-common-core</artifactId>
         </dependency>
     </dependencies>
 

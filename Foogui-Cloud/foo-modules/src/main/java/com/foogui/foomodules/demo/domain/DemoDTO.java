@@ -1,4 +1,4 @@
-package com.foogui.foomodules.demo.dto;
+package com.foogui.foomodules.demo.domain;
 
 import lombok.Data;
 

@@ -1,8 +1,8 @@
 package com.foogui.foomodules.demo.controller;
 
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foomodules.demo.dto.DemoFooSearchVO;
-import com.foogui.foomodules.demo.dto.DemoVO;
+import com.foogui.foomodules.demo.domain.DemoSearchCondition;
+import com.foogui.foomodules.demo.domain.DemoVO;
 import com.foogui.foomodules.demo.service.DemoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class DemoController {
     private DemoService demoService;
 
     @PostMapping("/search")
-    public Result<Object> search(@RequestBody DemoFooSearchVO condition){
+    public Result<Object> search(@RequestBody DemoSearchCondition condition){
         return Result.success(demoService.search(condition));
     }
 
@@ -42,6 +42,7 @@ public class DemoController {
     public Result<String> delete(@PathVariable String id){
         return demoService.removeById(id) ? Result.success("删除成功") : Result.fail("删除失败");
     }
+
 
     @PostMapping("/deleteBatch")
     public Result<String> deleteBatch(@RequestBody List<Long> ids){

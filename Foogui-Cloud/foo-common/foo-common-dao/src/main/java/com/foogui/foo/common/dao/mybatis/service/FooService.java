@@ -1,14 +1,19 @@
 package com.foogui.foo.common.dao.mybatis.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.foogui.foo.common.dao.mybatis.domain.BasePage;
-import com.foogui.foo.common.dao.mybatis.domain.FooSearchVO;
+import com.foogui.foo.common.dao.mybatis.domain.BaseSearchVO;
+import com.foogui.foo.common.dao.mybatis.domain.SearchCondition;
 import com.foogui.foo.common.dao.mybatis.domain.FooPage;
 
 public interface FooService<T> extends IService<T> {
 
-    void startPage(BasePage condition);
+    /**
+     * 开启分页功能
+     *
+     * @param condition 条件
+     */
+    void startPage(BaseSearchVO condition);
 
-    FooPage<T> getPage(FooSearchVO condition);
+    FooPage<T> getPage(SearchCondition condition);
 
 }

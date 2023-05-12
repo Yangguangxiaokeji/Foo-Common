@@ -2,8 +2,8 @@ package com.foogui.foo.common.dao.mybatis.service;
 
 import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.foogui.foo.common.dao.mybatis.domain.BasePage;
-import com.foogui.foo.common.dao.mybatis.domain.FooSearchVO;
+import com.foogui.foo.common.dao.mybatis.domain.BaseSearchVO;
+import com.foogui.foo.common.dao.mybatis.domain.SearchCondition;
 import com.foogui.foo.common.dao.mybatis.domain.FooPage;
 import com.foogui.foo.common.dao.mybatis.mapper.FooBaseMapper;
 import com.github.pagehelper.Page;
@@ -16,15 +16,21 @@ import java.util.HashMap;
 public class FooBaseServiceImpl<M extends FooBaseMapper<T>, T> extends ServiceImpl<M, T> implements FooService<T> {
 
     @Override
-    public void startPage(BasePage condition) {
+    public void startPage(BaseSearchVO condition) {
         Page<T> page = PageHelper.startPage(condition.getPageNumber(), condition.getPageSize());
         if (StringUtils.isNoneBlank(condition.getOrderBy())){
             page.setOrderBy(condition.getOrderBy());
         }
     }
 
+    /**
+     * 获取分页信息
+     *
+     * @param condition 条件
+     * @return {@link FooPage}<{@link T}>
+     */
     @Override
-    public FooPage<T> getPage(FooSearchVO condition) {
+    public FooPage<T> getPage(SearchCondition condition) {
         Object context = condition.getContext();
         HashMap<String, Object> nonNullFieldValues = getNonNullFieldValues(context);
         QueryChainWrapper<T> chainWrapper = query();

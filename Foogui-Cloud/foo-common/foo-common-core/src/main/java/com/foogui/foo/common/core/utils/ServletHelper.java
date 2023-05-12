@@ -1,4 +1,4 @@
-package com.foogui.foo.utils.http;
+package com.foogui.foo.common.core.utils;
 
 import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.enums.ResponseCode;

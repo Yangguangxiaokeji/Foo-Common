@@ -6,6 +6,12 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * 逻辑PO
+ * 继承此PO即可实现逻辑删除功能
+ * @author Foogui
+ * @date 2023/05/11
+ */
 @Data
 public class BaseLogicPO extends BasePO implements Serializable {
 
@@ -13,5 +19,5 @@ public class BaseLogicPO extends BasePO implements Serializable {
 
     @TableLogic
     @TableField(value = "is_deleted")
-    private Integer isDelete = 0 ;
+    private int deleted = 0 ;
 }

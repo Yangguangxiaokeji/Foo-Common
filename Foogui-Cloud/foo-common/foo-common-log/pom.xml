@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>com.foogui</groupId>
-            <artifactId>foo-common-utils</artifactId>
+            <artifactId>foo-common-core</artifactId>
             <version>${parent.version}</version>
         </dependency>
         <!-- aop切面 -->
@@ -30,6 +30,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <!--Log4j2日志-->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-log4j2</artifactId>-->
+        <!--</dependency>-->
 
     </dependencies>
 

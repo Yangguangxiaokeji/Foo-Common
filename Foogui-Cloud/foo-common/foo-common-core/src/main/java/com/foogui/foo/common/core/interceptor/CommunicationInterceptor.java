@@ -1,4 +1,4 @@
-package com.foogui.foo.utils.gateway.interceptor;
+package com.foogui.foo.common.core.interceptor;
 
 import com.foogui.foo.common.core.constant.HttpConstant;
 import feign.RequestInterceptor;

@@ -16,7 +16,7 @@
         <module>foo-common-log</module>
         <module>foo-common-core</module>
         <module>foo-common-dao</module>
-        <module>foo-common-utils</module>
+        <module>foo-common-core</module>
         <module>foo-common-security</module>
     </modules>
 
@@ -37,7 +37,7 @@
             </dependency>
             <dependency>
                 <groupId>com.foogui</groupId>
-                <artifactId>foo-common-utils</artifactId>
+                <artifactId>foo-common-core</artifactId>
                 <version>${parent.version}</version>
             </dependency>
             <dependency>

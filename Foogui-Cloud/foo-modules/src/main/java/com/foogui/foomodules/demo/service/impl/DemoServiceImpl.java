@@ -3,8 +3,8 @@ package com.foogui.foomodules.demo.service.impl;
 import com.foogui.foo.common.dao.mybatis.domain.FooPage;
 import com.foogui.foo.common.dao.mybatis.service.FooBaseServiceImpl;
 import com.foogui.foomodules.demo.dao.DemoMapper;
-import com.foogui.foomodules.demo.dto.DemoPO;
-import com.foogui.foomodules.demo.dto.DemoFooSearchVO;
+import com.foogui.foomodules.demo.domain.DemoPO;
+import com.foogui.foomodules.demo.domain.DemoSearchCondition;
 import com.foogui.foomodules.demo.service.DemoService;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class DemoServiceImpl extends FooBaseServiceImpl<DemoMapper, DemoPO> impl
     private DemoMapper demoMapper;
 
     @Override
-    public FooPage<DemoPO> search(DemoFooSearchVO condition) {
+    public FooPage<DemoPO> search(DemoSearchCondition condition) {
         startPage(condition);
         return getPage(condition);
     }

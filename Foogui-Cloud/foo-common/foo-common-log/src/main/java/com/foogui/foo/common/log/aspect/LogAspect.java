@@ -6,7 +6,7 @@ import com.foogui.foo.common.log.anotation.Log;
 import com.foogui.foo.common.log.domain.LogPO;
 import com.foogui.foo.common.log.enums.Action;
 import com.foogui.foo.common.log.task.LogAsyncTask;
-import com.foogui.foo.utils.http.ServletHelper;
+import com.foogui.foo.common.core.utils.ServletHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;

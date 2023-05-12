@@ -45,7 +45,9 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+
         </dependency>
+
         <!--loadbalancer负载均衡-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -61,6 +63,11 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-common-log</artifactId>
+            <version>${parent.version}</version>
         </dependency>
 
     </dependencies>

@@ -1,9 +1,9 @@
-package com.foogui.foomodules.demo.dto;
+package com.foogui.foomodules.demo.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.foogui.foo.common.dao.mybatis.domain.BasePO;
+import com.foogui.foo.common.dao.mybatis.domain.BaseLogicPO;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
@@ -12,7 +12,7 @@ import java.io.Serializable;
 @TableName("t_demo")
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DemoPO extends BasePO implements Serializable {
+public class DemoPO extends BaseLogicPO implements Serializable {
 
     private static final long serialVersionUID = -3188123308432513983L;
 

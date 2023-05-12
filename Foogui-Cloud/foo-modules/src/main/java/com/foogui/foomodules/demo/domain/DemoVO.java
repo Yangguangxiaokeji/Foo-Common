@@ -1,4 +1,4 @@
-package com.foogui.foomodules.demo.dto;
+package com.foogui.foomodules.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;

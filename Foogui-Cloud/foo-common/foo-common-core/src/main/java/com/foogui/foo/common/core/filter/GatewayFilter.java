@@ -1,4 +1,4 @@
-package com.foogui.foo.utils.gateway.filter;
+package com.foogui.foo.common.core.filter;
 
 import com.alibaba.fastjson2.JSON;
 import com.foogui.foo.common.core.constant.HttpConstant;

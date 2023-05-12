@@ -3,7 +3,7 @@ package com.foogui.foo.common.security.aspect;
 import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.exception.AuthException;
 import com.foogui.foo.common.security.annotation.InnerAuth;
-import com.foogui.foo.utils.http.ServletHelper;
+import com.foogui.foo.common.core.utils.ServletHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
