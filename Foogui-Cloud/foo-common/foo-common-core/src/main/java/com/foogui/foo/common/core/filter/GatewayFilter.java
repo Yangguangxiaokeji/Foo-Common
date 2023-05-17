@@ -20,7 +20,7 @@ import java.io.PrintWriter;
  * @date 2023/05/12
  */
 @Slf4j
-@Order(Ordered.HIGHEST_PRECEDENCE+1)
+@Order(Ordered.HIGHEST_PRECEDENCE+2)
 public class GatewayFilter implements Filter {
 
     @Override

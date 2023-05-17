@@ -37,14 +37,18 @@ public class FooBaseServiceImpl<M extends FooBaseMapper<T>, T> extends ServiceIm
         nonNullFieldValues.forEach(chainWrapper::like);
         return new FooPage<T>(chainWrapper.list());
     }
-    public HashMap<String, Object> getNonNullFieldValues(Object obj)  {
+    public HashMap<String, Object> getNonNullFieldValues(Object context)  {
         HashMap<String, Object> nonNullValues = new HashMap<>();
-        Field[] fields = obj.getClass().getDeclaredFields();
+        if (context==null){
+            return nonNullValues;
+        }
+
+        Field[] fields = context.getClass().getDeclaredFields();
         for (Field field : fields) {
             field.setAccessible(true);
             Object value = null;
             try {
-                value = field.get(obj);
+                value = field.get(context);
             } catch (IllegalAccessException e) {
                 throw new RuntimeException(e.getMessage());
             }

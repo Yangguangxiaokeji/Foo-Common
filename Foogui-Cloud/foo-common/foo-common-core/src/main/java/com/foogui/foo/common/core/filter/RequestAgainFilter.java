@@ -14,7 +14,7 @@ import java.io.IOException;
  * @author Foogui
  * @date 2023/05/12
  */
-@Order(Ordered.HIGHEST_PRECEDENCE)
+@Order(Ordered.HIGHEST_PRECEDENCE+1)
 public class RequestAgainFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
