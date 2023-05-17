@@ -26,6 +26,9 @@ public class GlobalExceptionHandler {
         return Result.fail(e.getMessage());
     }
 
+    /**
+     * 参数校验异常处理
+     */
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public Result<Object> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         log.error(ex.getMessage(), ex);
@@ -38,10 +41,22 @@ public class GlobalExceptionHandler {
         return Result.fail(msg);
     }
 
+    /**
+     * 参数校验异常处理
+     */
     @ExceptionHandler({ConstraintViolationException.class})
     public Result<Object> handleConstraintViolationException(ConstraintViolationException ex) {
         log.error(ex.getMessage(), ex);
         return Result.fail("参数校验失败");
+    }
+
+    /**
+     * 兜底处理其他异常
+     */
+    @ExceptionHandler(value =Exception.class)
+    public Result<Object> handleException(HttpServletRequest req, Exception ex){
+        log.error(ex.getMessage(), ex);
+        return Result.fail(ex.getMessage());
     }
 
 }

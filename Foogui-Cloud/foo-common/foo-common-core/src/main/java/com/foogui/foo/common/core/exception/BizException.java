@@ -1,6 +1,25 @@
 package com.foogui.foo.common.core.exception;
 
-public class BizException extends RuntimeException  {
+import com.foogui.foo.common.core.enums.ResponseCode;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class BizException extends RuntimeException {
+
+    private static final long serialVersionUID = 5294969255532501296L;
+
+    /**
+     * 错误编码
+     */
+    private int code;
+
+    /**
+     * 描述信息
+     */
+    private String message;
+
     public BizException() {
         super();
     }
@@ -11,5 +30,18 @@ public class BizException extends RuntimeException  {
 
     public BizException(String message, Throwable cause) {
         super(message, cause);
+    }
+
+    public BizException(ResponseCode responseCode) {
+        super(responseCode.getMessage());
+        this.code = responseCode.getCode();
+        this.message = responseCode.getMessage();
+
+    }
+
+    public BizException(ResponseCode responseCode, Throwable cause) {
+        super(responseCode.getMessage(), cause);
+        this.code = responseCode.getCode();
+        this.message = responseCode.getMessage();
     }
 }
