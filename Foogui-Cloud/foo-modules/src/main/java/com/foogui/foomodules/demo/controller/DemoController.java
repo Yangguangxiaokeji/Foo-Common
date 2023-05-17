@@ -31,6 +31,7 @@ public class DemoController {
 
     @PostMapping("/insert")
     public Result<String> insert(@RequestBody DemoVO demoVO){
+
         return demoService.save(demoVO.convert2PO()) ? Result.success("新增成功") : Result.fail("新增失败");
     }
 

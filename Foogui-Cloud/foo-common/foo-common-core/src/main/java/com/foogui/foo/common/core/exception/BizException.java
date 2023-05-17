@@ -18,7 +18,7 @@ public class BizException extends RuntimeException {
     /**
      * 描述信息
      */
-    private String message;
+    private String description;
 
     public BizException() {
         super();
@@ -35,13 +35,13 @@ public class BizException extends RuntimeException {
     public BizException(ResponseCode responseCode) {
         super(responseCode.getMessage());
         this.code = responseCode.getCode();
-        this.message = responseCode.getMessage();
+        this.description = responseCode.getMessage();
 
     }
 
     public BizException(ResponseCode responseCode, Throwable cause) {
         super(responseCode.getMessage(), cause);
         this.code = responseCode.getCode();
-        this.message = responseCode.getMessage();
+        this.description = responseCode.getMessage();
     }
 }

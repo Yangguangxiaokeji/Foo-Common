@@ -17,29 +17,29 @@ public class GatewayException extends RuntimeException  {
     /**
      * 描述信息
      */
-    private String message;
+    private String description;
     public GatewayException() {
         super();
     }
 
-    public GatewayException(String message) {
-        super(message);
+    public GatewayException(String description) {
+        super(description);
     }
 
-    public GatewayException(String message, Throwable cause) {
-        super(message, cause);
+    public GatewayException(String description, Throwable cause) {
+        super(description, cause);
     }
 
     public GatewayException(ResponseCode responseCode) {
         super(responseCode.getMessage());
         this.code = responseCode.getCode();
-        this.message = responseCode.getMessage();
+        this.description = responseCode.getMessage();
 
     }
 
     public GatewayException(ResponseCode responseCode, Throwable cause) {
         super(responseCode.getMessage(), cause);
         this.code = responseCode.getCode();
-        this.message = responseCode.getMessage();
+        this.description = responseCode.getMessage();
     }
 }

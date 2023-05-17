@@ -35,6 +35,11 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.1.0.Final</version>
         </dependency>
+        <!--<dependency>-->
+        <!--    <groupId>com.foogui</groupId>-->
+        <!--    <artifactId>foo-modules</artifactId>-->
+        <!--    <version>1.0.0</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>

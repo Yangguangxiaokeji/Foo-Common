@@ -18,7 +18,7 @@ public class AuthException extends RuntimeException{
     /**
      * 描述信息
      */
-    private String message;
+    private String description;
     public AuthException() {
         super();
     }
@@ -34,13 +34,13 @@ public class AuthException extends RuntimeException{
     public AuthException(ResponseCode responseCode) {
         super(responseCode.getMessage());
         this.code = responseCode.getCode();
-        this.message = responseCode.getMessage();
+        this.description = responseCode.getMessage();
 
     }
 
     public AuthException(ResponseCode responseCode, Throwable cause) {
         super(responseCode.getMessage(), cause);
         this.code = responseCode.getCode();
-        this.message = responseCode.getMessage();
+        this.description = responseCode.getMessage();
     }
 }
