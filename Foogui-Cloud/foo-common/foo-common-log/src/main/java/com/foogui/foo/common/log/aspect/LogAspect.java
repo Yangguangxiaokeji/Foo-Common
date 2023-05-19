@@ -2,17 +2,18 @@ package com.foogui.foo.common.log.aspect;
 
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.extra.servlet.ServletUtil;
+import com.foogui.foo.common.core.utils.ServletHelper;
 import com.foogui.foo.common.log.anotation.Log;
 import com.foogui.foo.common.log.domain.LogPO;
 import com.foogui.foo.common.log.enums.Action;
 import com.foogui.foo.common.log.task.LogAsyncTask;
-import com.foogui.foo.common.core.utils.ServletHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 
@@ -26,7 +27,14 @@ public class LogAspect {
     @Autowired
     private LogAsyncTask logAsyncTask;
 
-    @Around("@annotation(log)")
+    /**
+     * 约束所切注解的位置
+     */
+    @Pointcut("@annotation(com.foogui.foo.common.log.anotation.Log)")
+    public void logPointCut() {
+    }
+
+    @Around("logPointCut() && @annotation(log)")
     public Object around(ProceedingJoinPoint point, Log log) {
         String className = point.getTarget().getClass().getName();
         String methodName = point.getSignature().getName();
