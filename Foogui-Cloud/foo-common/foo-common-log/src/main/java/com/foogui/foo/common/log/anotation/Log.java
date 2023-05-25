@@ -1,6 +1,6 @@
 package com.foogui.foo.common.log.anotation;
 
-import com.foogui.foo.common.log.enums.Action;
+import com.foogui.foo.common.core.enums.Action;
 import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.*;

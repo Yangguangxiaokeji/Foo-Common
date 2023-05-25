@@ -3,7 +3,7 @@ package com.foogui.foo.gateway.filter;
 import com.foogui.foo.common.core.constant.FilterOrderConstant;
 import com.foogui.foo.common.core.domain.Result;
 import com.foogui.foo.common.core.exception.GatewayException;
-import com.foogui.foo.common.dao.redis.RedisObjectUtil;
+import com.foogui.foo.common.redis.service.RedisObjectUtil;
 import com.foogui.foo.gateway.utils.WebFluxUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

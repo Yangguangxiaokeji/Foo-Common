@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>com.foogui</groupId>
-            <artifactId>foo-common-dao</artifactId>
+            <artifactId>foo-api</artifactId>
             <version>${parent.version}</version>
         </dependency>
         <dependency>

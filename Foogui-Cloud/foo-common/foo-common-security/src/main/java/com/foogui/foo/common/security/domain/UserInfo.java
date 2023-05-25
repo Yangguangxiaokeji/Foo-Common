@@ -1,7 +1,9 @@
 package com.foogui.foo.common.security.domain;
 
-import com.foogui.foo.common.dao.mybatis.domain.BaseLogicPO;
+
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 /**
  * 用户信息
@@ -10,7 +12,11 @@ import lombok.Data;
  * @date 2023/05/24
  */
 @Data
-public class UserInfo extends BaseLogicPO {
+public class UserInfo {
+
+    private Long id;
+
+
 
     /**
      * 用户id
@@ -53,5 +59,19 @@ public class UserInfo extends BaseLogicPO {
      * 用户类型（0管理员，1普通用户）
      */
     private String userType;
+
+    private String createUser;
+
+    private LocalDateTime createTime;
+
+
+    private String updateUser;
+
+    private LocalDateTime updateTime;
+
+
+    private Integer version;
+
+    private int deleted ;
 
 }

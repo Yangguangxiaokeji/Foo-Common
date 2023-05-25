@@ -5,7 +5,7 @@ import cn.hutool.captcha.LineCaptcha;
 import cn.hutool.captcha.generator.RandomGenerator;
 import cn.hutool.core.lang.UUID;
 import com.foogui.foo.common.core.constant.CacheConstant;
-import com.foogui.foo.common.dao.redis.RedisStringUtil;
+import com.foogui.foo.common.redis.service.RedisStringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;

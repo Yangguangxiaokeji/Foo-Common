@@ -2,10 +2,10 @@ package com.foogui.foo.common.log.aspect;
 
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.extra.servlet.ServletUtil;
+import com.foogui.foo.api.dto.SysLogDTO;
+import com.foogui.foo.common.core.enums.Action;
 import com.foogui.foo.common.core.utils.ServletHelper;
 import com.foogui.foo.common.log.anotation.Log;
-import com.foogui.foo.common.log.domain.LogPO;
-import com.foogui.foo.common.log.enums.Action;
 import com.foogui.foo.common.log.task.LogAsyncTask;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -39,32 +39,33 @@ public class LogAspect {
         String className = point.getTarget().getClass().getName();
         String methodName = point.getSignature().getName();
         Action action = log.action();
-        LogPO logPO = new LogPO();
-        prepare(logPO);
-        logPO.setAction(action);
-        logPO.setClassName(className);
-        logPO.setMethodName(methodName);
-        logPO.setDescription(StringUtils.isNoneBlank(log.value()) ? log.value() : log.description());
+        SysLogDTO sysLogDTO = new SysLogDTO();
+
+        prepare(sysLogDTO);
+        sysLogDTO.setAction(action);
+        sysLogDTO.setClassName(className);
+        sysLogDTO.setMethodName(methodName);
+        sysLogDTO.setDescription(StringUtils.isNoneBlank(log.value()) ? log.value() : log.description());
         Object result = null;
         Long startTime = System.currentTimeMillis();
         try {
             result = point.proceed();
         } catch (Throwable e) {
-            logPO.setException(ExceptionUtils.getRootCauseMessage(e));
+            sysLogDTO.setException(ExceptionUtils.getRootCauseMessage(e));
             throw new RuntimeException(e.getMessage());
         } finally {
             Long endTime = System.currentTimeMillis();
             // 记录响应时间
-            logPO.setDuration(endTime - startTime);
+            sysLogDTO.setDuration(endTime - startTime);
             // 异步记录日志到db
-            recordLogAsync(logPO);
+            recordLogAsync(sysLogDTO);
         }
         return result;
     }
 
-    private void recordLogAsync(LogPO logPO) {
+    private void recordLogAsync(SysLogDTO sysLogDTO) {
         try {
-            logAsyncTask.recordLog(logPO);
+            logAsyncTask.recordLog(sysLogDTO);
         } catch (Exception e) {
             // 日志记录insert时发生异常
             log.info("日志插入时发生了异常: {}", ExceptionUtils.getRootCauseMessage(e));
@@ -74,12 +75,12 @@ public class LogAspect {
     /**
      * 日志信息预处理
      *
-     * @param logPO 日志
+     * @param sysLogDTO 日志
      */
-    private void prepare(LogPO logPO) {
+    private void prepare(SysLogDTO sysLogDTO) {
         HttpServletRequest request = ServletHelper.getRequest();
-        logPO.setIp(ServletUtil.getClientIP(request));
-        logPO.setUri(URLUtil.getPath(request.getRequestURI()));
-        logPO.setUserAgent(request.getHeader(HttpHeaders.USER_AGENT));
+        sysLogDTO.setIp(ServletUtil.getClientIP(request));
+        sysLogDTO.setUri(URLUtil.getPath(request.getRequestURI()));
+        sysLogDTO.setUserAgent(request.getHeader(HttpHeaders.USER_AGENT));
     }
 }

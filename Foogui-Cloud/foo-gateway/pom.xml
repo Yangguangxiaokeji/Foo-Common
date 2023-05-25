@@ -68,9 +68,10 @@
         </dependency>
         <dependency>
             <groupId>com.foogui</groupId>
-            <artifactId>foo-common-dao</artifactId>
+            <artifactId>foo-common-redis</artifactId>
             <version>${parent.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>

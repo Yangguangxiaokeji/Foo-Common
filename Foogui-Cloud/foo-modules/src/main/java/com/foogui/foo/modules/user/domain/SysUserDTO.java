@@ -5,10 +5,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-public class SysUserDTO {
+public class SysUserDTO implements Serializable {
+
+    private static final long serialVersionUID = -8786259771882858870L;
+
     private Long id;
     /**
      * 用户id

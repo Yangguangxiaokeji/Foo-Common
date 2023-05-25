@@ -14,8 +14,9 @@
     <modules>
         <module>foo-common-log</module>
         <module>foo-common-core</module>
-        <module>foo-common-dao</module>
+        <module>foo-common-mybatis</module>
         <module>foo-common-security</module>
+        <module>foo-common-redis</module>
     </modules>
 
     <name>foo-common</name>
@@ -41,12 +42,17 @@
             </dependency>
             <dependency>
                 <groupId>com.foogui</groupId>
-                <artifactId>foo-common-dao</artifactId>
+                <artifactId>foo-common-mybatis</artifactId>
                 <version>${parent.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.foogui</groupId>
                 <artifactId>foo-common-security</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.foogui</groupId>
+                <artifactId>foo-common-redis</artifactId>
                 <version>${parent.version}</version>
             </dependency>
         </dependencies>

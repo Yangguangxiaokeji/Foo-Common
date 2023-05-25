@@ -59,14 +59,15 @@
             <artifactId>foo-common-log</artifactId>
             <version>${parent.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.foogui</groupId>
-            <artifactId>foo-common-dao</artifactId>
+            <artifactId>foo-common-security</artifactId>
             <version>${parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.foogui</groupId>
-            <artifactId>foo-common-security</artifactId>
+            <artifactId>foo-common-redis</artifactId>
             <version>${parent.version}</version>
         </dependency>
         <dependency>

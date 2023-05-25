@@ -1,6 +1,6 @@
 package com.foogui.foo.common.log.task;
 
-import com.foogui.foo.common.log.domain.LogPO;
+import com.foogui.foo.api.dto.SysLogDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 
@@ -9,11 +9,11 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 public class LogAsyncTask {
     @Async("logExecutor")
-    public CompletableFuture<Integer> recordLog(LogPO logPO) throws Exception {
-        log.info("开始任务：{}", logPO);
+    public CompletableFuture<Integer> recordLog(SysLogDTO sysLogDTO) throws Exception {
+        log.info("开始任务：{}", sysLogDTO);
         long start = System.currentTimeMillis();
         // 记录日志
-        // Todo...
+        // Todo...RPC
         Thread.sleep(5000);
         System.out.println(Thread.currentThread().getName());
         long end = System.currentTimeMillis();
