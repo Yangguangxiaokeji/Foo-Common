@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: foo-generator
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      # 配置中心地址
+      config:
+        file-extension: yaml
+        #  定义配置空间的坐标
+        server-addr: localhost:8848
+        namespace: 499a6e4f-d397-4b1a-b441-842206a0f071
+        group: DEFAULT_GROUP
+      discovery:
+        # 服务注册地址
+        server-addr: 127.0.0.1:8848
+        namespace: 499a6e4f-d397-4b1a-b441-842206a0f071
+        group: DEFAULT_GROUP
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
