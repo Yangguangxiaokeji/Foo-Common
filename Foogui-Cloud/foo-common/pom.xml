@@ -9,14 +9,12 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>com.foogui</groupId>
     <artifactId>foo-common</artifactId>
     <version>${parent.version}</version>
     <modules>
         <module>foo-common-log</module>
         <module>foo-common-core</module>
         <module>foo-common-dao</module>
-        <module>foo-common-core</module>
         <module>foo-common-security</module>
     </modules>
 
@@ -28,13 +26,9 @@
     <dependencies>
 
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.foogui</groupId>
-                <artifactId>foo-common-core</artifactId>
-                <version>${parent.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.foogui</groupId>
                 <artifactId>foo-common-core</artifactId>
@@ -48,6 +42,11 @@
             <dependency>
                 <groupId>com.foogui</groupId>
                 <artifactId>foo-common-dao</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.foogui</groupId>
+                <artifactId>foo-common-security</artifactId>
                 <version>${parent.version}</version>
             </dependency>
         </dependencies>

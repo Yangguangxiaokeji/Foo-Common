@@ -11,7 +11,7 @@
 
     <artifactId>foo-common-dao</artifactId>
 
-    <name>foo-common-mybatis</name>
+    <name>foo-common-dao</name>
 
     <dependencies>
         <!--mysql数据库连接-->
@@ -41,6 +41,16 @@
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-core</artifactId>
+        </dependency>
+
+        <!-- Cache-Caffeine-缓存-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
         </dependency>
     </dependencies>
 

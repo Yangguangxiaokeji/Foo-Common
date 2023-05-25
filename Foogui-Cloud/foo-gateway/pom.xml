@@ -16,16 +16,7 @@
     <description>foo-gateway网关模块</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.foogui</groupId>
-            <artifactId>foo-common-core</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.foogui</groupId>
-            <artifactId>foo-common-dao</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
+
         <!-- nacos服务注册 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -70,6 +61,16 @@
             <version>${parent.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-common-core</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-common-dao</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

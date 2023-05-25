@@ -1,2 +1,4 @@
 com.foogui.foo.common.dao.redis.RedisStringUtil
 com.foogui.foo.common.dao.redis.RedisObjectUtil
+com.foogui.foo.common.dao.cache.CaffeineCacheConfig
+com.foogui.foo.common.dao.redis.RedisConfig
