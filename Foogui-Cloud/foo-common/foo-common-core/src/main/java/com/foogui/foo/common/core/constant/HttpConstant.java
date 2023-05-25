@@ -15,7 +15,5 @@ public class HttpConstant {
     public static final String CODE_KEY="codeKey";
 
 
-
-
-
+    public static final String USER_INFO = "user-info";
 }

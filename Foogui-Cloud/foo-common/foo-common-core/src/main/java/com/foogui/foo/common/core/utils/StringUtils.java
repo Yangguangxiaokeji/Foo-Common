@@ -1,6 +1,6 @@
 package com.foogui.foo.common.core.utils;
 
-public class StringUtils {
+public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /**
      * 驼峰形式转下划线
      *

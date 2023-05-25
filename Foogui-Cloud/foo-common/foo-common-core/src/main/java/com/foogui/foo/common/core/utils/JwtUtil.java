@@ -9,17 +9,16 @@ import com.auth0.jwt.exceptions.AlgorithmMismatchException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.foogui.foo.common.core.constant.CacheConstant;
 import com.foogui.foo.common.core.constant.MessageStoreConstant;
-import com.foogui.foo.common.core.constant.RedisConstant;
 import com.foogui.foo.common.core.exception.AuthException;
-import org.springframework.stereotype.Component;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.Calendar;
 import java.util.Map;
 
-@Component
+
 public class JwtUtil {
 
     private String privateKey= MessageStoreConstant.PRIVATE_KEY;
@@ -57,7 +56,7 @@ public class JwtUtil {
         try{
             //解析token
             DecodedJWT decodedJWT = jwtVerifier.verify(token);
-            return decodedJWT.getClaim(RedisConstant.LOGIN_TOKEN).asString();
+            return decodedJWT.getClaim(CacheConstant.LOGIN_TOKEN).asString();
         }catch (TokenExpiredException e){
             throw new AuthException("token过期");
         }catch (SignatureVerificationException e){
