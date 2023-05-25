@@ -20,16 +20,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.foogui</groupId>
-            <artifactId>foo-common-core</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.foogui</groupId>
-            <artifactId>foo-common-log</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
+
         <!-- nacos服务注册 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -45,11 +36,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.foogui</groupId>
-            <artifactId>foo-common-dao</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
+
         <!-- SpringCloud Openfeign -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -61,6 +48,28 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-common-core</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-common-log</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-common-dao</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-common-security</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+
     </dependencies>
 
 

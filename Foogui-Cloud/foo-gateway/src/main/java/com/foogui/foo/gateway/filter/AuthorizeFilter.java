@@ -5,8 +5,8 @@ import com.foogui.foo.common.core.constant.FilterOrderConstant;
 import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.domain.LoginUser;
 import com.foogui.foo.common.core.exception.AuthException;
-import com.foogui.foo.common.core.utils.JwtUtil;
 import com.foogui.foo.common.dao.redis.RedisObjectUtil;
+import com.foogui.foo.common.core.utils.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -58,8 +58,8 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
      * 验证token是否合法
      * 保存信息到请求头
      *
-     * @param token   令牌
-     * @param request 请求
+     * @param
+     * @param
      */
     private ServerHttpRequest verifyToken(ServerHttpRequest request) {
         // 将信息存入请求头，方便传递
