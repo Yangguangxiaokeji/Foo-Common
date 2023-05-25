@@ -69,6 +69,11 @@
             <artifactId>foo-common-security</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-api</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
 
     </dependencies>
 

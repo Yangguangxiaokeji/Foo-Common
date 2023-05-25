@@ -1,19 +1,23 @@
-package com.foogui.foo.auth;
+package com.foogui.foo.modules;
 
 import com.foogui.foo.common.core.annotation.EnableCommonFilter;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+@EnableFeignClients
 @SpringBootApplication
-@EnableFeignClients(basePackages = "com.foogui.foo.api")        // 需要扫描到api包才能创建Feign实例
 @EnableDiscoveryClient
 @EnableCommonFilter
-public class FooAuthApplication {
+@MapperScan("com.foogui.foo.modules.**.dao")
+@EnableAspectJAutoProxy
+public class FooModulesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FooAuthApplication.class, args);
+        SpringApplication.run(FooModulesApplication.class, args);
     }
 
 }

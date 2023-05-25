@@ -1,17 +1,13 @@
-package com.foogui.foo.common.security.domain;
+package com.foogui.foo.api.dto;
 
-import com.foogui.foo.common.dao.mybatis.domain.BaseLogicPO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-/**
- * 用户信息
- *
- * @author Foogui
- * @date 2023/05/24
- */
-@Data
-public class UserInfo extends BaseLogicPO {
+import java.time.LocalDateTime;
 
+@Data
+public class SysUserDTO {
+    private Long id;
     /**
      * 用户id
      */
@@ -53,5 +49,18 @@ public class UserInfo extends BaseLogicPO {
      * 用户类型（0管理员，1普通用户）
      */
     private String userType;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    private LocalDateTime createTime;
+
+    private String updateUser;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    private LocalDateTime updateTime;
+
+    private Integer version;
+
+    private Integer deleted;
+
 
 }

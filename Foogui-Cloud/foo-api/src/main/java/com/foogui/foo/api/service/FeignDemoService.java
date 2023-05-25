@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(value = "foo-modules", configuration = FeignConfig.class, fallbackFactory = DemoFallbackFactory.class)
+@FeignClient(value = "foo-modules",contextId = "demo", configuration = FeignConfig.class, fallbackFactory = DemoFallbackFactory.class)
 public interface FeignDemoService {
     @PostMapping("/demo/insert")
     public Result<String> insert(@RequestBody DemoVO demoVO);

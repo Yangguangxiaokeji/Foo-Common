@@ -1,6 +1,7 @@
 package com.foogui.foo.gateway.filter;
 
 import cn.hutool.json.JSONUtil;
+import com.foogui.foo.common.core.constant.CacheConstant;
 import com.foogui.foo.common.core.constant.FilterOrderConstant;
 import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.domain.LoginUser;
@@ -70,7 +71,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
             log.info("token不能为空");
             throw new AuthException("token不能为空");
         }
-        String uuid = jwtUtil.verifierJwtToken(token);
+        String uuid = jwtUtil.verifyJwt(token, CacheConstant.LOGIN_TOKEN);
         String userJson = redisObjectUtil.get(uuid, String.class);
         if (StringUtils.isNoneBlank(uuid,userJson)){
             LoginUser loginUser = JSONUtil.toBean(userJson, LoginUser.class);

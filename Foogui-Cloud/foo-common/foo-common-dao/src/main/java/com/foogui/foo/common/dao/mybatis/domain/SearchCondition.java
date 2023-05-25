@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SearchCondition<T> extends BaseSearchVO{
+public class SearchCondition<T> extends BaseSearchDTO {
     /**
      * 动态查询条件
      */
