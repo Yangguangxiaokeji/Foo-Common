@@ -54,6 +54,7 @@
             <artifactId>foo-common-log</artifactId>
             <version>${parent.version}</version>
         </dependency>
+
     </dependencies>
 
 
