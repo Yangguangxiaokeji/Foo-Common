@@ -1,6 +1,7 @@
 com.foogui.foo.common.security.aspect.InnerAuthAspect
 com.foogui.foo.common.security.config.WebSecurityNewConfig
 com.foogui.foo.common.security.service.AuthenticationProviderImpl
-com.foogui.foo.common.security.service.UserDetailsServiceImpl
 com.foogui.foo.common.security.filter.JwtAuthenticationFilter
 com.foogui.foo.common.core.utils.JwtUtil
+com.foogui.foo.common.security.service.UserDetailsServiceImpl
+com.foogui.foo.common.security.handler.SuccessHandler

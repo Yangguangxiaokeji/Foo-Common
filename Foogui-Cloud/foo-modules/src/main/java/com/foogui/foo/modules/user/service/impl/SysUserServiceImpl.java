@@ -8,9 +8,11 @@ import com.foogui.foo.modules.user.domain.SysUserDTO;
 import com.foogui.foo.modules.user.domain.SysUserPO;
 import com.foogui.foo.modules.user.domain.SysUserSearchCondition;
 import com.foogui.foo.modules.user.service.SysUserService;
+import com.google.common.collect.Sets;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashSet;
 
 @Service
 public class SysUserServiceImpl extends FooBaseServiceImpl<SysUserMapper, SysUserPO> implements SysUserService {
@@ -30,7 +32,11 @@ public class SysUserServiceImpl extends FooBaseServiceImpl<SysUserMapper, SysUse
         SysUserDTO userDTO=null;
         if (sysUserPO!=null){
             userDTO = sysUserPO.convert2DTO();
+            // todo查询permissions
+            HashSet<String> admin = Sets.newHashSet("ROLE_ADMIN");
+            userDTO.setPermissions(admin);
         }
+
         return Result.success(userDTO);
     }
 }

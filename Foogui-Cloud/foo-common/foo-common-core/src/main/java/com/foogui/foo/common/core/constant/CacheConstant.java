@@ -4,13 +4,13 @@ package com.foogui.foo.common.core.constant;
  * @author wangxin
  * @version $ Id: RedisConstant, v 0.1 2023/02/16 13:27 banma-0369 Exp $
  */
-public interface CacheConstant {
-     final String LOGIN_TOKEN="login:token:";
-     final String CAPTCHA_CODE ="captcha:code:";
-     final String CAPTCHA_LOGIN ="captcha:login:";
-     final String JWT_TOKEN ="jwt_token";
+public class CacheConstant {
+    public static final String LOGIN_TOKEN = "login:token:";
+    public static final String CAPTCHA_CODE = "captcha:code:";
+    public static final String CAPTCHA_LOGIN = "captcha:login:";
+    public static final String JWT_PAYLOAD_KEY = "userId";
 
-     final Long LOGIN_TTL =30L;
+    public static final Long LOGIN_TTL = 30L;
 
 
 }

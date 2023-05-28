@@ -1,5 +1,3 @@
-
-
 spring:
   cloud:
     ## 整合sentinel，配置sentinel控制台的地址
@@ -9,23 +7,25 @@ spring:
       transport:
         ## 指定控制台的地址，默认端口8080
         dashboard: localhost:8080
-
+        port: 8719 #默认占用8719端口,如果8719被占用，依次+1,直到找到可用的端口
       #配置限流之后，响应内容
       scg:
         fallback:
           ## 两种模式，一种是response返回文字提示信息，一种是redirect，重定向跳转，需要同时配置redirect(跳转的uri)
           # 方式1
           mode: response
-          ## 响应的状态
           response-status: 200
-          ## 响应体
           response-body: '{"code": 200,"message": "请求失败，稍后重试啊！"}'
-      #     # # 方式2
-      #     # mode: redirect
-      #     # ## 跳转的URL
-      #     # redirect: http://www.baidu.com
+           # # 方式2
+           # mode: redirect
+           # ## 跳转的URL
+           # redirect: http://www.baidu.com
 
     gateway:
+      httpclient:
+        connect-timeout: 5000   # 连接超时
+        response-timeout: 10s    # 5秒表示超时
+        maxIdleTime: 10000
       # 路由
       routes:
         - id: foo-modules
@@ -37,7 +37,9 @@ spring:
           uri: lb://foo-auth
           predicates:
             - Path=/foo-auth/**
-
+          metadata:
+            response-timeout: 7000
+            connect-timeout: 2000
 
 
         # - id: foo-modules

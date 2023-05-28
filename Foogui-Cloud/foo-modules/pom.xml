@@ -54,6 +54,11 @@
             <artifactId>foo-common-log</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.foogui</groupId>
+            <artifactId>foo-common-security</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
 
     </dependencies>
 

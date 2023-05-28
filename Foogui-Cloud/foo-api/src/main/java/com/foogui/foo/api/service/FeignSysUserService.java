@@ -5,8 +5,8 @@ import com.foogui.foo.api.dto.SysUserDTO;
 import com.foogui.foo.api.fallback.SysUserFallbackFactory;
 import com.foogui.foo.common.core.domain.Result;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 用户服务RPC
@@ -16,6 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
  */
 @FeignClient(value = "foo-modules",contextId = "user", configuration = FeignConfig.class, fallbackFactory = SysUserFallbackFactory.class)
 public interface FeignSysUserService {
-    @PostMapping("/sys-user/queryByUsername")
-    public Result<SysUserDTO> queryByUsername(@RequestBody SysUserDTO sysUserDTO);
+    @GetMapping("/sys-user/queryByUsername")
+    public Result<SysUserDTO> queryByUsername(@RequestParam("username") String username);
 }

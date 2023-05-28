@@ -36,14 +36,14 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
      */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        // 前端输入的账号密码
-        String username = authentication.getName();
+        // 获取前端输入的账号密码
+        String username = authentication.getPrincipal().toString();
         String password = authentication.getCredentials().toString();
-        // 获得UserInfoDetail对象
+        // 获得UserDetails对象
         UserDetails user = userDetailsService.loadUserByUsername(username);
         if (passwordEncoder.matches(password, user.getPassword())) {
-            //todo:将用户信息存入redis，生成jwt
-            return new UsernamePasswordAuthenticationToken(username, password, user.getAuthorities());
+            // 密码匹配
+            return new UsernamePasswordAuthenticationToken(user, password, user.getAuthorities());
         } else {
             throw new BadCredentialsException("用户名或者密码错误!");
         }

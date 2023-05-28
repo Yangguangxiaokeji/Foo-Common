@@ -6,7 +6,10 @@ import com.foogui.foo.modules.user.domain.SysUserSearchCondition;
 import com.foogui.foo.modules.user.domain.SysUserVO;
 import com.foogui.foo.modules.user.service.SysUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,47 +20,53 @@ import java.util.List;
 @Slf4j
 public class SysUserController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(SysUserController.class);
+
     @Autowired
     private SysUserService sysUserService;
 
     @PostMapping("/search")
-    public Result<Object> search(@RequestBody SysUserSearchCondition condition){
+    public Result<Object> search(@RequestBody SysUserSearchCondition condition) {
         return Result.success(sysUserService.search(condition));
     }
 
     @PostMapping("/searchById/{id}")
-    public Result<SysUserVO> searchById(@PathVariable String id){
+    // @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_uADMIN')")
+    public Result<SysUserVO> searchById(@PathVariable String id) {
+        LOGGER.info("Searching id {}", id);
         return Result.success(sysUserService.getById(id).convert2VO());
     }
 
     @PostMapping("/insert")
-    public Result<String> insert(@RequestBody SysUserDTO sysUserDTO){
+    public Result<String> insert(@RequestBody SysUserDTO sysUserDTO) {
 
         return sysUserService.save(sysUserDTO.convert2PO()) ? Result.success("新增成功") : Result.fail("新增失败");
     }
 
 
     @PostMapping("/update")
-    public Result<String> update(@RequestBody SysUserDTO sysUserDTO){
+    public Result<String> update(@RequestBody SysUserDTO sysUserDTO) {
         return sysUserService.updateById(sysUserDTO.convert2PO()) ? Result.success("修改成功") : Result.fail("修改失败");
     }
+
     @PostMapping("/delete/{id}")
-    public Result<String> delete(@PathVariable String id){
+    public Result<String> delete(@PathVariable String id) {
         return sysUserService.removeById(id) ? Result.success("删除成功") : Result.fail("删除失败");
     }
 
 
     @PostMapping("/deleteBatch")
-    public Result<String> deleteBatch(@RequestBody List<Long> ids){
-        if(CollectionUtils.isEmpty(ids)){
+    public Result<String> deleteBatch(@RequestBody List<Long> ids) {
+        if (CollectionUtils.isEmpty(ids)) {
             return Result.fail("请选择数据");
         }
         return sysUserService.removeBatchByIds(ids) ? Result.success("批量删除成功！") : Result.fail("批量删除失败！");
     }
 
-    @PostMapping("/queryByUsername")
-    public Result<SysUserDTO> queryByUsername(@RequestBody SysUserDTO sysUserDTO){
-        return sysUserService.queryByUsername(sysUserDTO.getUsername());
+    @GetMapping("/queryByUsername")
+    public Result<SysUserDTO> queryByUsername(@RequestParam("username") String username) {
+        return sysUserService.queryByUsername(username);
     }
 
 }

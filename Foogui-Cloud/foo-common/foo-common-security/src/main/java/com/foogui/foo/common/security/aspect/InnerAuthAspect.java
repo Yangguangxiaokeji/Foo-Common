@@ -3,7 +3,7 @@ package com.foogui.foo.common.security.aspect;
 import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.exception.AuthException;
 import com.foogui.foo.common.security.annotation.InnerAuth;
-import com.foogui.foo.common.core.utils.ServletHelper;
+import com.foogui.foo.common.core.utils.ServletUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -24,7 +24,7 @@ public class InnerAuthAspect {
 
     @Around("@annotation(innerAuth)")
     public Object innerAround(ProceedingJoinPoint point, InnerAuth innerAuth) throws Throwable {
-        HttpServletRequest request = ServletHelper.getRequest();
+        HttpServletRequest request = ServletUtils.getRequest();
         String header = request.getHeader(HttpConstant.REQUEST_SOURCE);
         if(StringUtils.isBlank(header)){
             throw new AuthException("内部调用访问必须携带请求头:"+HttpConstant.REQUEST_SOURCE);

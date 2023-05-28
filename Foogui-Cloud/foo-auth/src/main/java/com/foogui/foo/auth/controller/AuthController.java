@@ -1,34 +1,31 @@
 package com.foogui.foo.auth.controller;
 
-import com.foogui.foo.api.dto.SysUserDTO;
-import com.foogui.foo.api.service.FeignSysUserService;
+import com.foogui.foo.auth.service.AuthService;
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.common.security.domain.UserInfo;
-import org.springframework.beans.BeanUtils;
+import com.foogui.foo.common.security.domain.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
+
+
     @Autowired
-    private FeignSysUserService feignSysUserService;
+    private AuthService authService;
 
     @PostMapping("/login")
-    public Result<UserInfo> login(@RequestBody UserInfo userInfo) {
-        SysUserDTO dto = new SysUserDTO();
-        dto.setUsername(userInfo.getUsername());
-        Result<SysUserDTO> result = feignSysUserService.queryByUsername(dto);
-        Result<UserInfo> success = Result.success();
-        BeanUtils.copyProperties(result,success);
-        return success;
+    public Result<String> login(@RequestBody LoginUser loginUser) {
+        return authService.login(loginUser);
+    }
+
+    @GetMapping("/logout")
+    public Result<String> logout() {
+        return authService.logout();
     }
 
     @PostMapping("/testConfig")
-    public Result<UserInfo> testConfig(@RequestBody UserInfo userInfo) {
+    public Result<LoginUser> testConfig(@RequestBody LoginUser loginUser) {
         return Result.success(null, "testConfig successful");
     }
 }

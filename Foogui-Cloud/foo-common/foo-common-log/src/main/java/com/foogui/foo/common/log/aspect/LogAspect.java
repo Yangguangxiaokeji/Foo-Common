@@ -4,7 +4,7 @@ import cn.hutool.core.util.URLUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import com.foogui.foo.api.dto.SysLogDTO;
 import com.foogui.foo.common.core.enums.Action;
-import com.foogui.foo.common.core.utils.ServletHelper;
+import com.foogui.foo.common.core.utils.ServletUtils;
 import com.foogui.foo.common.log.anotation.Log;
 import com.foogui.foo.common.log.task.LogAsyncTask;
 import lombok.extern.slf4j.Slf4j;
@@ -78,7 +78,7 @@ public class LogAspect {
      * @param sysLogDTO 日志
      */
     private void prepare(SysLogDTO sysLogDTO) {
-        HttpServletRequest request = ServletHelper.getRequest();
+        HttpServletRequest request = ServletUtils.getRequest();
         sysLogDTO.setIp(ServletUtil.getClientIP(request));
         sysLogDTO.setUri(URLUtil.getPath(request.getRequestURI()));
         sysLogDTO.setUserAgent(request.getHeader(HttpHeaders.USER_AGENT));

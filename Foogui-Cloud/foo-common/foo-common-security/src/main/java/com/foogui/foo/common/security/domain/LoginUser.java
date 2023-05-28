@@ -3,20 +3,22 @@ package com.foogui.foo.common.security.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
  * 用户信息
- *
+ * 与SysUser保持一致，主要用于前端登录传递信息
  * @author Foogui
  * @date 2023/05/24
  */
 @Data
-public class UserInfo {
+public class LoginUser implements Serializable {
+
+
+    private static final long serialVersionUID = 204793910472931046L;
 
     private Long id;
-
-
 
     /**
      * 用户id

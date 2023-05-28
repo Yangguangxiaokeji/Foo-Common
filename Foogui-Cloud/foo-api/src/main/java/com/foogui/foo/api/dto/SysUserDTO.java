@@ -3,10 +3,25 @@ package com.foogui.foo.api.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 
+/**
+ * 用户信息DTO
+ *
+ * @author Foogui
+ * @date 2023/05/27
+ */
 @Data
-public class SysUserDTO {
+public class SysUserDTO implements Serializable {
+
+
+    private static final long serialVersionUID = 5380659942000359046L;
+
+    /**
+     * id
+     */
     private Long id;
     /**
      * 用户id
@@ -62,5 +77,23 @@ public class SysUserDTO {
 
     private Integer deleted;
 
+    /**
+     * 登录时间
+     */
+    private LocalDateTime loginTime;
+
+    /**
+     * 登录ip
+     */
+    private String loginIp;
+
+    /**
+     * 权限
+     */
+    private Set<String> permissions;
+    /**
+     * 角色
+     */
+    private Set<String> roles;
 
 }

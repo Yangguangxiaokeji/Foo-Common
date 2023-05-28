@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Data
 public class SysUserDTO implements Serializable {
@@ -75,6 +76,25 @@ public class SysUserDTO implements Serializable {
         BeanUtils.copyProperties(this, po);
         return po;
     }
+
+    /**
+     * 登录时间
+     */
+    private LocalDateTime loginTime;
+
+    /**
+     * 登录ip
+     */
+    private String loginIp;
+
+    /**
+     * 权限
+     */
+    private Set<String> permissions;
+    /**
+     * 角色
+     */
+    private Set<String> roles;
 
 
 }
