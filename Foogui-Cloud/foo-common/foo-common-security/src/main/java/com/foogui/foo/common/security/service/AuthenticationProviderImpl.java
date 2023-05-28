@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * 校验密码
+ * 负责校验密码
  *
  * @author Foogui
  * @date 2023/05/24

@@ -6,6 +6,7 @@ import com.foogui.foo.common.core.utils.ResponseUtils;
 import com.foogui.foo.common.core.utils.StringUtils;
 import com.foogui.foo.common.redis.service.RedisObjectUtil;
 import com.foogui.foo.common.security.domain.LoginUser;
+import com.foogui.foo.common.security.utils.SecurityUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -69,7 +70,9 @@ public class LoginEnterFilter extends UsernamePasswordAuthenticationFilter {
         }
 
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword(), Collections.emptyList());
-        return authenticationProvider.authenticate(authenticationToken);
+        Authentication authentication = authenticationProvider.authenticate(authenticationToken);
+        SecurityUtils.setAuthentication(authentication);
+        return authentication;
     }
 
     @Override
