@@ -1,17 +1,17 @@
 package com.foogui.foo.common.core.interceptor;
 
-import com.alibaba.fastjson.JSON;
 import com.foogui.foo.common.core.constant.HttpConstant;
-import com.google.common.collect.Maps;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 
 /**
- * 微服务调用，将用户信息和请求来源存入header中
+ * 微服务调用，采用feign拦截器实现请求头携带JWT
  *
  * @author Foogui
  * @date 2023/05/25
@@ -19,17 +19,22 @@ import java.util.Map;
 public class FeignRequestInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate template) {
-        //todo：从context获取用户信息存入
-        // 模拟
-        Map<String, String> user= Maps.newHashMap();
-        if(user != null){
-            try {
-                String userJson = JSON.toJSONString(user) ;
-                template.header(HttpConstant.USER_INFO,  URLEncoder.encode(userJson, "UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
+
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+
+        if (requestAttributes!=null){
+            // 获得原请求,复制原请求所有头信息到新请求(这里包含了jwt,这样安全模块的jwt过滤器就可以获取用户信息放在SecurityContext中)
+            HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
+            Enumeration<String> headerNames = request.getHeaderNames();
+            if (headerNames!=null){
+                while (headerNames.hasMoreElements()){
+                    String headerName = headerNames.nextElement();
+                    String headerValue = request.getHeader(headerName);
+                    template.header(headerName, headerValue);
+                }
             }
         }
+        // feign请求添加来源,避免GatewayFilter将请求拦截
         template.header(HttpConstant.FROM_WHERE, HttpConstant.INNER);
     }
 }
