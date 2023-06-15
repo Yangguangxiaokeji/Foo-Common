@@ -1,6 +1,6 @@
-package com.foogui.foo.common.core.domain;
+package com.foogui.foo.common.web.foo.common.core.domain;
 
-import com.foogui.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.web.foo.common.core.enums.ResponseCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.exception.ExceptionUtils;

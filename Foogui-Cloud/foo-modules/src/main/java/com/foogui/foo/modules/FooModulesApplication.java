@@ -1,6 +1,6 @@
-package com.foogui.foo.modules;
+package com.foogui.foo.common.web.foo.modules;
 
-import com.foogui.foo.common.core.annotation.EnableCommonFilter;
+import com.foogui.foo.common.web.annotation.EnableCommonFilter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

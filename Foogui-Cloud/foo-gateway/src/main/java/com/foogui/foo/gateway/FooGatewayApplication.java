@@ -1,4 +1,4 @@
-package com.foogui.foo.gateway;
+package com.foogui.foo.common.web.foo.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

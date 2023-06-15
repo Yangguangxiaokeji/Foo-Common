@@ -1,6 +1,6 @@
-package com.foogui.foo.common.security.annotation;
+package com.foogui.foo.common.web.foo.common.security.annotation;
 
-import com.foogui.foo.common.security.enums.AuthPattern;
+import com.foogui.foo.common.web.foo.common.security.enums.AuthPattern;
 
 import java.lang.annotation.*;
 

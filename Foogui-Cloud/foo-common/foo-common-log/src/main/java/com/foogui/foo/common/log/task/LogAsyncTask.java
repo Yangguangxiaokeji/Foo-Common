@@ -1,6 +1,6 @@
-package com.foogui.foo.common.log.task;
+package com.foogui.foo.common.web.foo.common.log.task;
 
-import com.foogui.foo.api.dto.SysLogDTO;
+import com.foogui.foo.common.web.foo.api.dto.SysLogDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 

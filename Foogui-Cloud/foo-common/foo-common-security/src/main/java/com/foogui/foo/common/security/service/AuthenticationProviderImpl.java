@@ -1,4 +1,4 @@
-package com.foogui.foo.common.security.service;
+package com.foogui.foo.common.web.foo.common.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;

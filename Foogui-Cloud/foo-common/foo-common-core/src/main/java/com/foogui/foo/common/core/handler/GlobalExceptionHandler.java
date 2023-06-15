@@ -1,7 +1,7 @@
-package com.foogui.foo.common.core.handler;
+package com.foogui.foo.common.web.foo.common.core.handler;
 
-import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.common.core.exception.BizException;
+import com.foogui.foo.common.web.foo.common.core.domain.Result;
+import com.foogui.foo.common.web.foo.common.core.exception.BizException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;

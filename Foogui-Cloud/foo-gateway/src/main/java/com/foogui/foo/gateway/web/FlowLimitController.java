@@ -1,4 +1,4 @@
-package com.foogui.foo.gateway.web;
+package com.foogui.foo.common.web.foo.gateway.web;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;

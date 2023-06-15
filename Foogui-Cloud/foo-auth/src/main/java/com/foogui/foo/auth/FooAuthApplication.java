@@ -1,6 +1,6 @@
-package com.foogui.foo.auth;
+package com.foogui.foo.common.web.foo.auth;
 
-import com.foogui.foo.common.core.annotation.EnableCommonFilter;
+import com.foogui.foo.common.web.annotation.EnableCommonFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;

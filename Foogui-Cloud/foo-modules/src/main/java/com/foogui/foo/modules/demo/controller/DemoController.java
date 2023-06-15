@@ -1,10 +1,10 @@
-package com.foogui.foo.modules.demo.controller;
+package com.foogui.foo.common.web.foo.modules.demo.controller;
 
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.modules.demo.domain.DemoDTO;
-import com.foogui.foo.modules.demo.domain.DemoSearchCondition;
-import com.foogui.foo.modules.demo.domain.DemoVO;
-import com.foogui.foo.modules.demo.service.DemoService;
+import com.foogui.foo.common.web.foo.modules.demo.domain.DemoDTO;
+import com.foogui.foo.common.web.foo.modules.demo.domain.DemoSearchCondition;
+import com.foogui.foo.common.web.foo.modules.demo.domain.DemoVO;
+import com.foogui.foo.common.web.foo.modules.demo.service.DemoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;

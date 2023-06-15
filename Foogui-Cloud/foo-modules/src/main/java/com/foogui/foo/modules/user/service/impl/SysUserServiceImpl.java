@@ -1,13 +1,13 @@
-package com.foogui.foo.modules.user.service.impl;
+package com.foogui.foo.common.web.foo.modules.user.service.impl;
 
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.common.dao.mybatis.domain.FooPage;
-import com.foogui.foo.common.dao.mybatis.service.FooBaseServiceImpl;
-import com.foogui.foo.modules.user.dao.SysUserMapper;
-import com.foogui.foo.modules.user.domain.SysUserDTO;
-import com.foogui.foo.modules.user.domain.SysUserPO;
-import com.foogui.foo.modules.user.domain.SysUserSearchCondition;
-import com.foogui.foo.modules.user.service.SysUserService;
+import com.foogui.foo.common.mybatis.domain.FooPage;
+import com.foogui.foo.common.mybatis.service.FooBaseServiceImpl;
+import com.foogui.foo.common.web.foo.modules.user.dao.SysUserMapper;
+import com.foogui.foo.common.web.foo.modules.user.domain.SysUserDTO;
+import com.foogui.foo.common.web.foo.modules.user.domain.SysUserPO;
+import com.foogui.foo.common.web.foo.modules.user.domain.SysUserSearchCondition;
+import com.foogui.foo.common.web.foo.modules.user.service.SysUserService;
 import com.google.common.collect.Sets;
 import org.springframework.stereotype.Service;
 

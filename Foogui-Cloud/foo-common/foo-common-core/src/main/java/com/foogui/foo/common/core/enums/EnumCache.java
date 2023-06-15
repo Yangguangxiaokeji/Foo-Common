@@ -1,4 +1,4 @@
-package com.foogui.foo.common.core.enums;
+package com.foogui.foo.common.web.foo.common.core.enums;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

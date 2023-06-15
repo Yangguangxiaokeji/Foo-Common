@@ -1,4 +1,4 @@
-package com.foogui.foo.common.core.config.properties;
+package com.foogui.foo.common.web.foo.common.core.config.properties;
 
 import cn.hutool.crypto.Mode;
 import cn.hutool.crypto.Padding;

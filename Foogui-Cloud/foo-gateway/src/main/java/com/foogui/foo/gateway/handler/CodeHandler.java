@@ -1,11 +1,11 @@
-package com.foogui.foo.gateway.handler;
+package com.foogui.foo.common.web.foo.gateway.handler;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
 import cn.hutool.captcha.generator.RandomGenerator;
 import cn.hutool.core.lang.UUID;
 import com.foogui.foo.common.core.constant.CacheConstant;
-import com.foogui.foo.common.redis.service.RedisStringUtil;
+import com.foogui.foo.common.web.foo.common.redis.service.RedisStringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;

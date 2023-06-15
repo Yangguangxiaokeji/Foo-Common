@@ -1,4 +1,4 @@
-package com.foogui.foo.common.security.handler;
+package com.foogui.foo.common.web.foo.common.security.handler;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;

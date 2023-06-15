@@ -1,4 +1,4 @@
-package com.foogui.foo.api.config;
+package com.foogui.foo.common.web.foo.api.config;
 
 
 import com.foogui.foo.common.core.constant.HttpConstant;

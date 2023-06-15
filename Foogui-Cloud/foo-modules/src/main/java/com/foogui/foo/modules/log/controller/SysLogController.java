@@ -1,10 +1,10 @@
-package com.foogui.foo.modules.log.controller;
+package com.foogui.foo.common.web.foo.modules.log.controller;
 
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.modules.log.domain.SysLogDTO;
-import com.foogui.foo.modules.log.domain.SysLogSearchCondition;
-import com.foogui.foo.modules.log.domain.SysLogVO;
-import com.foogui.foo.modules.log.service.SysLogService;
+import com.foogui.foo.common.web.foo.modules.log.domain.SysLogSearchCondition;
+import com.foogui.foo.common.web.foo.modules.log.service.SysLogService;
+import com.foogui.foo.common.web.foo.modules.log.domain.SysLogDTO;
+import com.foogui.foo.common.web.foo.modules.log.domain.SysLogVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;

@@ -1,4 +1,4 @@
-package com.foogui.foo.common.redis.service;
+package com.foogui.foo.common.web.foo.common.redis.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;

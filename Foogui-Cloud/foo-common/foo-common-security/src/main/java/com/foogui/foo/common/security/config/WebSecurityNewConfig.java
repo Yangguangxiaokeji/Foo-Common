@@ -1,10 +1,11 @@
-package com.foogui.foo.common.security.config;
+package com.foogui.foo.common.web.foo.common.security.config;
 
 import com.foogui.foo.common.core.utils.JwtUtil;
-import com.foogui.foo.common.redis.service.RedisObjectUtil;
-import com.foogui.foo.common.security.filter.JwtAuthenticationFilter;
-import com.foogui.foo.common.security.filter.LoginEnterFilter;
+import com.foogui.foo.common.web.foo.common.redis.service.RedisObjectUtil;
+import com.foogui.foo.common.web.foo.common.security.filter.JwtAuthenticationFilter;
+import com.foogui.foo.common.web.foo.common.security.filter.LoginEnterFilter;
 import com.foogui.foo.common.security.handler.*;
+import com.foogui.foo.common.web.foo.common.security.handler.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

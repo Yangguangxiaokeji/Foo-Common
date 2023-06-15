@@ -1,10 +1,10 @@
-package com.foogui.foo.gateway.filter;
+package com.foogui.foo.common.web.foo.gateway.filter;
 
 import com.foogui.foo.common.core.constant.FilterOrderConstant;
 import com.foogui.foo.common.core.domain.Result;
 import com.foogui.foo.common.core.exception.GatewayException;
-import com.foogui.foo.common.redis.service.RedisObjectUtil;
-import com.foogui.foo.gateway.utils.WebFluxUtils;
+import com.foogui.foo.common.web.foo.common.redis.service.RedisObjectUtil;
+import com.foogui.foo.common.web.foo.gateway.utils.WebFluxUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;

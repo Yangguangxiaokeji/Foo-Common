@@ -1,4 +1,4 @@
-package com.foogui.foo.common.core.constant;
+package com.foogui.foo.common.web.foo.common.core.constant;
 
 public class SecurityConstant {
 

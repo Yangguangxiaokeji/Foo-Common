@@ -1,4 +1,4 @@
-package com.foogui.foo.gateway.filter;
+package com.foogui.foo.common.web.foo.gateway.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.handler.predicate.AbstractRoutePredicateFactory;

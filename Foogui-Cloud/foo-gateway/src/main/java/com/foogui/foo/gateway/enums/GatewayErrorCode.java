@@ -1,4 +1,4 @@
-package com.foogui.foo.gateway.enums;
+package com.foogui.foo.common.web.foo.gateway.enums;
 
 import lombok.Getter;
 

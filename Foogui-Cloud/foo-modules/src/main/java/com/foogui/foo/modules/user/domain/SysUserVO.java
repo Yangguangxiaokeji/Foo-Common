@@ -1,4 +1,4 @@
-package com.foogui.foo.modules.user.domain;
+package com.foogui.foo.common.web.foo.modules.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;

@@ -1,11 +1,11 @@
 
 
-package com.foogui.foo.common.security.utils;
+package com.foogui.foo.common.web.foo.common.security.utils;
 
 import com.foogui.foo.common.core.constant.SecurityConstant;
-import com.foogui.foo.common.security.exception.SecurityAuthException;
+import com.foogui.foo.common.web.foo.common.security.exception.SecurityAuthException;
 import com.foogui.foo.common.core.utils.StringUtils;
-import com.foogui.foo.common.security.domain.LoginUserDetail;
+import com.foogui.foo.common.web.foo.common.security.domain.LoginUserDetail;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,11 +1,11 @@
-package com.foogui.foo.common.security.handler;
+package com.foogui.foo.common.web.foo.common.security.handler;
 
 import com.foogui.foo.common.core.constant.CacheConstant;
 import com.foogui.foo.common.core.constant.SecurityConstant;
 import com.foogui.foo.common.core.utils.JwtUtil;
 import com.foogui.foo.common.core.utils.ResponseUtils;
-import com.foogui.foo.common.redis.service.RedisObjectUtil;
-import com.foogui.foo.common.security.domain.LoginUserDetail;
+import com.foogui.foo.common.web.foo.common.redis.service.RedisObjectUtil;
+import com.foogui.foo.common.web.foo.common.security.domain.LoginUserDetail;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.LogoutHandler;

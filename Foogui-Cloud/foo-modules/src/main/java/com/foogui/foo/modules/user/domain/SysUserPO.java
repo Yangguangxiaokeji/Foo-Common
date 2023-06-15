@@ -1,9 +1,9 @@
-package com.foogui.foo.modules.user.domain;
+package com.foogui.foo.common.web.foo.modules.user.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.foogui.foo.common.dao.mybatis.domain.BaseLogicPO;
+import com.foogui.foo.common.mybatis.domain.BaseLogicPO;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 

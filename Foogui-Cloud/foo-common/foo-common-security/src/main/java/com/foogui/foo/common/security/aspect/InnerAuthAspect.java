@@ -1,9 +1,9 @@
-package com.foogui.foo.common.security.aspect;
+package com.foogui.foo.common.web.foo.common.security.aspect;
 
 import com.foogui.foo.common.core.constant.HttpConstant;
-import com.foogui.foo.common.security.exception.SecurityAuthException;
-import com.foogui.foo.common.security.annotation.InnerAuth;
-import com.foogui.foo.common.core.utils.ServletUtils;
+import com.foogui.foo.common.web.foo.common.security.annotation.InnerAuth;
+import com.foogui.foo.common.web.foo.common.security.exception.SecurityAuthException;
+import com.foogui.foo.common.web.utils.ServletUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -11,6 +11,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+
 
 /**
  * 内部服务调用鉴权处理

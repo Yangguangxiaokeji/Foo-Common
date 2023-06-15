@@ -1,4 +1,4 @@
-package com.foogui.foo.common.security.enums;
+package com.foogui.foo.common.web.foo.common.security.enums;
 
 public enum AuthPattern {
     /**

@@ -1,4 +1,4 @@
-package com.foogui.foo.common.core.utils;
+package com.foogui.foo.common.web.foo.common.core.utils;
 
 import cn.hutool.core.util.ReflectUtil;
 

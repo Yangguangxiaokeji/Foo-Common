@@ -1,6 +1,6 @@
-package com.foogui.foo.modules.demo.domain;
+package com.foogui.foo.common.web.foo.modules.demo.domain;
 
-import com.foogui.foo.common.dao.mybatis.domain.SearchCondition;
+import com.foogui.foo.common.mybatis.domain.SearchCondition;
 import lombok.Data;
 
 @Data

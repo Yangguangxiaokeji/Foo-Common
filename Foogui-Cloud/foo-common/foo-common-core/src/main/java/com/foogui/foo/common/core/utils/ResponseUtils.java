@@ -1,7 +1,7 @@
-package com.foogui.foo.common.core.utils;
+package com.foogui.foo.common.web.foo.common.core.utils;
 
 import com.alibaba.fastjson.JSON;
-import com.foogui.foo.common.core.domain.Result;
+import com.foogui.foo.common.web.foo.common.core.domain.Result;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
