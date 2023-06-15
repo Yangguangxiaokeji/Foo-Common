@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.log.config;
+package com.foogui.foo.common.log.config;
 
 import lombok.Getter;
 import lombok.Setter;

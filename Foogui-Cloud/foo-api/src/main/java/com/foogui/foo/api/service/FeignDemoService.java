@@ -1,8 +1,8 @@
-package com.foogui.foo.common.web.foo.api.service;
+package com.foogui.foo.api.service;
 
-import com.foogui.foo.common.web.foo.api.config.FeignConfig;
-import com.foogui.foo.common.web.foo.api.dto.DemoVO;
-import com.foogui.foo.common.web.foo.api.fallback.DemoFallbackFactory;
+import com.foogui.foo.api.fallback.DemoFallbackFactory;
+import com.foogui.foo.api.config.FeignConfig;
+import com.foogui.foo.api.dto.DemoVO;
 import com.foogui.foo.common.core.domain.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,6 +1,6 @@
-package com.foogui.foo.common.web.foo.gateway.config;
+package com.foogui.foo.gateway.config;
 
-import com.foogui.foo.common.web.foo.gateway.handler.CodeHandler;
+import com.foogui.foo.gateway.handler.CodeHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

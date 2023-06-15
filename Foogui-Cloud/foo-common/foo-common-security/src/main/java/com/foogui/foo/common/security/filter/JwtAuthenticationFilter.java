@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.security.filter;
+package com.foogui.foo.common.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.foogui.foo.common.core.constant.CacheConstant;
@@ -6,9 +6,9 @@ import com.foogui.foo.common.core.constant.SecurityConstant;
 import com.foogui.foo.common.core.utils.JwtUtil;
 import com.foogui.foo.common.core.utils.ResponseUtils;
 import com.foogui.foo.common.core.utils.StringUtils;
-import com.foogui.foo.common.web.foo.common.redis.service.RedisObjectUtil;
-import com.foogui.foo.common.web.foo.common.security.domain.LoginUserDetail;
-import com.foogui.foo.common.web.foo.common.security.exception.SecurityAuthException;
+import com.foogui.foo.common.redis.service.RedisObjectUtil;
+import com.foogui.foo.common.security.exception.SecurityAuthException;
+import com.foogui.foo.common.security.domain.LoginUserDetail;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

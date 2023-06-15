@@ -1,8 +1,8 @@
-package com.foogui.foo.common.web.foo.gateway.handler;
+package com.foogui.foo.gateway.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.common.web.foo.gateway.utils.WebFluxUtils;
+import com.foogui.foo.gateway.utils.WebFluxUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;

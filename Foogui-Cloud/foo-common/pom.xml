@@ -17,6 +17,7 @@
         <module>foo-common-mybatis</module>
         <module>foo-common-security</module>
         <module>foo-common-redis</module>
+        <module>foo-common-web</module>
     </modules>
 
     <name>foo-common</name>

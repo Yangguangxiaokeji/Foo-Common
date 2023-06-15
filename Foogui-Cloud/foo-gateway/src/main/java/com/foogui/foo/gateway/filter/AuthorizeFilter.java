@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.gateway.filter;
+package com.foogui.foo.gateway.filter;
 
 import cn.hutool.json.JSONUtil;
 import com.foogui.foo.common.core.constant.CacheConstant;
@@ -6,7 +6,7 @@ import com.foogui.foo.common.core.constant.FilterOrderConstant;
 import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.domain.LoginUser;
 import com.foogui.foo.common.core.utils.JwtUtil;
-import com.foogui.foo.common.web.foo.common.redis.service.RedisObjectUtil;
+import com.foogui.foo.common.redis.service.RedisObjectUtil;
 import com.foogui.foo.common.core.exception.AuthException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

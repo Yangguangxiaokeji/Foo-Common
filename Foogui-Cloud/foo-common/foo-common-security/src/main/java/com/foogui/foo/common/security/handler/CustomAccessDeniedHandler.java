@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.security.handler;
+package com.foogui.foo.common.security.handler;
 
 import com.foogui.foo.common.core.utils.ResponseUtils;
 import org.slf4j.Logger;

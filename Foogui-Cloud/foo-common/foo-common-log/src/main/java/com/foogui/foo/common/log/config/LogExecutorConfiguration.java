@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.log.config;
+package com.foogui.foo.common.log.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;

@@ -1,11 +1,11 @@
-package com.foogui.foo.common.web.foo.modules.demo.service.impl;
+package com.foogui.foo.modules.demo.service.impl;
 
 import com.foogui.foo.common.mybatis.domain.FooPage;
 import com.foogui.foo.common.mybatis.service.FooBaseServiceImpl;
-import com.foogui.foo.common.web.foo.modules.demo.dao.DemoMapper;
-import com.foogui.foo.common.web.foo.modules.demo.domain.DemoPO;
-import com.foogui.foo.common.web.foo.modules.demo.domain.DemoSearchCondition;
-import com.foogui.foo.common.web.foo.modules.demo.service.DemoService;
+import com.foogui.foo.modules.demo.dao.DemoMapper;
+import com.foogui.foo.modules.demo.domain.DemoPO;
+import com.foogui.foo.modules.demo.domain.DemoSearchCondition;
+import com.foogui.foo.modules.demo.service.DemoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

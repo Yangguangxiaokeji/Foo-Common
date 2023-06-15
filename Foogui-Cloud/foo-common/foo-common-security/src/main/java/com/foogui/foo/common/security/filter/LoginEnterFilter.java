@@ -1,13 +1,13 @@
-package com.foogui.foo.common.web.foo.common.security.filter;
+package com.foogui.foo.common.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.foogui.foo.common.core.utils.JwtUtil;
 import com.foogui.foo.common.core.utils.ResponseUtils;
 import com.foogui.foo.common.core.utils.StringUtils;
-import com.foogui.foo.common.web.foo.common.redis.service.RedisObjectUtil;
-import com.foogui.foo.common.web.foo.common.security.domain.LoginUser;
-import com.foogui.foo.common.web.foo.common.security.handler.UnAuthorizedEntryPoint;
-import com.foogui.foo.common.web.foo.common.security.utils.SecurityUtils;
+import com.foogui.foo.common.redis.service.RedisObjectUtil;
+import com.foogui.foo.common.security.domain.LoginUser;
+import com.foogui.foo.common.security.handler.UnAuthorizedEntryPoint;
+import com.foogui.foo.common.security.utils.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;

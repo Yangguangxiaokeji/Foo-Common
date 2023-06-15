@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.api.dto;
+package com.foogui.foo.api.dto;
 
 import lombok.Data;
 

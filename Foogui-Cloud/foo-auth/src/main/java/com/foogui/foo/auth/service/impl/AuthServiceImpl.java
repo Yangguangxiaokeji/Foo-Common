@@ -1,7 +1,7 @@
-package com.foogui.foo.common.web.foo.auth.service.impl;
+package com.foogui.foo.auth.service.impl;
 
-import com.foogui.foo.common.web.foo.api.service.FeignSysUserService;
-import com.foogui.foo.common.web.foo.auth.service.AuthService;
+import com.foogui.foo.auth.service.AuthService;
+import com.foogui.foo.api.service.FeignSysUserService;
 import com.foogui.foo.common.core.constant.CacheConstant;
 import com.foogui.foo.common.core.domain.Result;
 import com.foogui.foo.common.core.utils.JwtUtil;

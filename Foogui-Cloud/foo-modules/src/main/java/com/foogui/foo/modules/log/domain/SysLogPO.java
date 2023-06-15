@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.modules.log.domain;
+package com.foogui.foo.modules.log.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonInclude;

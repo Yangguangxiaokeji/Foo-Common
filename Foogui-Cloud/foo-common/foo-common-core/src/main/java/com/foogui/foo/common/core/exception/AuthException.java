@@ -1,6 +1,6 @@
-package com.foogui.foo.common.web.foo.common.core.exception;
+package com.foogui.foo.common.core.exception;
 
-import com.foogui.foo.common.web.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.core.enums.ResponseCode;
 import lombok.Data;
 
 @Data

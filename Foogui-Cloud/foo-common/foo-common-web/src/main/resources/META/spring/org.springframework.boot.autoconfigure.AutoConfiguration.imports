@@ -1,4 +1,0 @@
-com.foogui.foo.common.core.config.CoreConfig
-com.foogui.foo.common.core.config.properties.CryptConfig
-com.foogui.foo.common.core.handler.GlobalExceptionHandler
-com.foogui.foo.common.core.utils.SpringBeanUtils

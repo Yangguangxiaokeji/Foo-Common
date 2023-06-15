@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.core.utils;
+package com.foogui.foo.common.core.utils;
 
 import cn.hutool.crypto.asymmetric.RSA;
 import com.auth0.jwt.JWT;
@@ -10,8 +10,8 @@ import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.foogui.foo.common.web.foo.common.core.constant.MessageStoreConstant;
-import com.foogui.foo.common.web.foo.common.core.exception.AuthException;
+import com.foogui.foo.common.core.constant.MessageStoreConstant;
+import com.foogui.foo.common.core.exception.AuthException;
 import com.google.common.collect.Maps;
 
 import java.security.interfaces.RSAPrivateKey;

@@ -1,7 +1,7 @@
 package com.foogui.foo.common.web.utils;
 
-import com.foogui.foo.common.web.foo.common.core.constant.HttpConstant;
-import com.foogui.foo.common.web.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.core.constant.HttpConstant;
+import com.foogui.foo.common.core.enums.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;

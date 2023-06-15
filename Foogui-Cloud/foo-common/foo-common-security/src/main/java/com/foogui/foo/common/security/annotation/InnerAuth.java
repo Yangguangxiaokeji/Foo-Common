@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.security.annotation;
+package com.foogui.foo.common.security.annotation;
 
 import java.lang.annotation.*;
 

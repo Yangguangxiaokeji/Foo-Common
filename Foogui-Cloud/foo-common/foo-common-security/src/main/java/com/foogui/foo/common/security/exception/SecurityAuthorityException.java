@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.security.exception;
+package com.foogui.foo.common.security.exception;
 
 import com.foogui.foo.common.core.enums.ResponseCode;
 import lombok.Getter;

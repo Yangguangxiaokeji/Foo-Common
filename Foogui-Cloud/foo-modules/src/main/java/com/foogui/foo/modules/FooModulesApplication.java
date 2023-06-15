@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.modules;
+package com.foogui.foo.modules;
 
 import com.foogui.foo.common.web.annotation.EnableCommonFilter;
 import org.mybatis.spring.annotation.MapperScan;

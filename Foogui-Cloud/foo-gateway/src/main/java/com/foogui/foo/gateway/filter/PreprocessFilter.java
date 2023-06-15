@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.gateway.filter;
+package com.foogui.foo.gateway.filter;
 
 import com.foogui.foo.common.core.constant.FilterOrderConstant;
 import com.foogui.foo.common.core.constant.HttpConstant;

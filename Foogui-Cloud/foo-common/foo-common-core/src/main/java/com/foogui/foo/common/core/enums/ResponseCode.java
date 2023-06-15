@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.core.enums;
+package com.foogui.foo.common.core.enums;
 
 import lombok.Getter;
 

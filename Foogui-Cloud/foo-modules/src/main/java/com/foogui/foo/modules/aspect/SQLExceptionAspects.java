@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class SQLExceptionAspects {
 
 
-    @Pointcut("execution( * com.foogui.foomodules.*.controller.*.*(..))")
+    @Pointcut("execution( * com.foogui.foo.modules.*.controller.*.*(..))")
     public void  pointCut() {
     }
 

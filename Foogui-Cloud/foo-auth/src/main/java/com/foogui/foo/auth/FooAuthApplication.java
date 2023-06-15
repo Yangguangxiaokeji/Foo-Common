@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.auth;
+package com.foogui.foo.auth;
 
 import com.foogui.foo.common.web.annotation.EnableCommonFilter;
 import org.springframework.boot.SpringApplication;

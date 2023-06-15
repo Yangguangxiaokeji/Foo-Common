@@ -1,6 +1,6 @@
-package com.foogui.foo.common.web.foo.auth.controller;
+package com.foogui.foo.auth.controller;
 
-import com.foogui.foo.common.web.foo.auth.service.AuthService;
+import com.foogui.foo.auth.service.AuthService;
 import com.foogui.foo.common.core.domain.Result;
 import com.foogui.foo.common.security.domain.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;

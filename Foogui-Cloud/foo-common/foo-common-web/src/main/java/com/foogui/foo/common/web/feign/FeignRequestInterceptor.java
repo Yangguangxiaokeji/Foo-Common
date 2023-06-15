@@ -1,6 +1,6 @@
 package com.foogui.foo.common.web.feign;
 
-import com.foogui.foo.common.web.foo.common.core.constant.HttpConstant;
+import com.foogui.foo.common.core.constant.HttpConstant;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.springframework.web.context.request.RequestAttributes;

@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.core.constant;
+package com.foogui.foo.common.core.constant;
 
 public class HttpConstant {
     public static final String APPLICATION_JSON="application/json; charset=utf-8";

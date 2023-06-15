@@ -1,10 +1,10 @@
-package com.foogui.foo.common.web.foo.modules.user.controller;
+package com.foogui.foo.modules.user.controller;
 
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.common.web.foo.modules.user.domain.SysUserDTO;
-import com.foogui.foo.common.web.foo.modules.user.domain.SysUserSearchCondition;
-import com.foogui.foo.common.web.foo.modules.user.domain.SysUserVO;
-import com.foogui.foo.common.web.foo.modules.user.service.SysUserService;
+import com.foogui.foo.modules.user.domain.SysUserDTO;
+import com.foogui.foo.modules.user.domain.SysUserSearchCondition;
+import com.foogui.foo.modules.user.domain.SysUserVO;
+import com.foogui.foo.modules.user.service.SysUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

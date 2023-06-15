@@ -1,7 +1,7 @@
-package com.foogui.foo.common.web.foo.common.core.config;
+package com.foogui.foo.common.core.config;
 
 import cn.hutool.crypto.symmetric.AES;
-import com.foogui.foo.common.web.foo.common.core.config.properties.CryptConfig;
+import com.foogui.foo.common.core.config.properties.CryptConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

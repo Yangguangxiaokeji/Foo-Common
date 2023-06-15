@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.api.dto;
+package com.foogui.foo.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.foogui.foo.common.core.enums.Action;

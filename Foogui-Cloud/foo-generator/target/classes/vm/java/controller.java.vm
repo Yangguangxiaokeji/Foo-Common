@@ -1,0 +1,80 @@
+package ${packageName}.controller;
+
+import com.foogui.foo.common.core.domain.Result;
+import ${packageName}.domain.${ClassName}SearchCondition;
+import ${packageName}.domain.${ClassName}VO;
+import ${packageName}.service.${ClassName}Service;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+
+/**
+ * ${functionName}Controller
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@RestController
+@RequestMapping("/${moduleName}")
+@Slf4j
+public class ${ClassName}Controller {
+    @Autowired
+    private ${ClassName}Service ${className}Service;
+
+    /**
+     * 查询${functionName}列表
+     */
+    @PostMapping("/search")
+    public Result<Object> search(@RequestBody ${ClassName}SearchCondition condition) {
+        return Result.success(${className}Service.search(condition));
+    }
+
+
+
+    /**
+     * 根据id获取${functionName}详细信息
+     */
+    @PostMapping("/searchById/{id}")
+    public Result<${ClassName}VO> searchById(@PathVariable String id){
+        return Result.success(${className}Service.getById(id).convert2VO());
+    }
+
+    /**
+     * 新增${functionName}
+     */
+    @PostMapping("/insert")
+    public Result<String> insert(@RequestBody ${ClassName}VO ${className}VO){
+        return ${className}Service.save(${className}VO.convert2PO()) ? Result.success("新增成功") : Result.fail("新增失败");
+    }
+
+    /**
+     * 修改${functionName}
+     */
+    @PostMapping("/update")
+    public Result<String> update(@RequestBody ${ClassName}VO ${className}VO){
+        return ${className}Service.updateById(${className}VO.convert2PO()) ? Result.success("修改成功") : Result.fail("修改失败");
+    }
+
+    /**
+     * 删除${functionName}
+     */
+    @PostMapping("/delete/{id}")
+    public Result<String> delete(@PathVariable String id){
+        return ${className}Service.removeById(id) ? Result.success("删除成功") : Result.fail("删除失败");
+    }
+
+    /**
+     * 批量删除${functionName}
+     */
+    @PostMapping("/deleteBatch")
+    public Result<String> deleteBatch(@RequestBody List<Long> ids){
+        if(CollectionUtils.isEmpty(ids)){
+            return Result.fail("请选择数据");
+        }
+        return ${className}Service.removeBatchByIds(ids) ? Result.success("批量删除成功！") : Result.fail("批量删除失败！");
+    }
+}

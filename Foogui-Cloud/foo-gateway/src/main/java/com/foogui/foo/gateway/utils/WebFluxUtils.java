@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.gateway.utils;
+package com.foogui.foo.gateway.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.foogui.foo.common.core.domain.Result;

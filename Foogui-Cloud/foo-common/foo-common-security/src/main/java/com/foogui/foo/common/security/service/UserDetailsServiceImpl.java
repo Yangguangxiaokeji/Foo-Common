@@ -1,12 +1,12 @@
-package com.foogui.foo.common.web.foo.common.security.service;
+package com.foogui.foo.common.security.service;
 
-import com.foogui.foo.common.web.foo.api.dto.SysUserDTO;
-import com.foogui.foo.common.web.foo.api.service.FeignSysUserService;
+import com.foogui.foo.common.security.exception.SecurityAuthException;
+import com.foogui.foo.api.dto.SysUserDTO;
+import com.foogui.foo.api.service.FeignSysUserService;
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.common.web.foo.common.security.exception.SecurityAuthException;
 import com.foogui.foo.common.core.utils.SpringBeanUtils;
-import com.foogui.foo.common.web.foo.common.security.domain.LoginUser;
-import com.foogui.foo.common.web.foo.common.security.domain.LoginUserDetail;
+import com.foogui.foo.common.security.domain.LoginUser;
+import com.foogui.foo.common.security.domain.LoginUserDetail;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;

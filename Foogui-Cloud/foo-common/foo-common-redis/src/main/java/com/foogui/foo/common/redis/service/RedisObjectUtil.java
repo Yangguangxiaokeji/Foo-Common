@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.redis.service;
+package com.foogui.foo.common.redis.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

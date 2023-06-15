@@ -1,7 +1,7 @@
-package com.foogui.foo.common.web.foo.common.log;
+package com.foogui.foo.common.log;
 
-import com.foogui.foo.common.web.foo.common.log.aspect.LogAspect;
-import com.foogui.foo.common.web.foo.common.log.task.LogAsyncTask;
+import com.foogui.foo.common.log.aspect.LogAspect;
+import com.foogui.foo.common.log.task.LogAsyncTask;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

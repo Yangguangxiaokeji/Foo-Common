@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.modules.demo.controller;
+package com.foogui.foo.modules.demo.controller;
 
 import com.foogui.foo.common.core.domain.Result;
 import org.springframework.web.bind.annotation.GetMapping;

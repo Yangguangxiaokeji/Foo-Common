@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.security.domain;
+package com.foogui.foo.common.security.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

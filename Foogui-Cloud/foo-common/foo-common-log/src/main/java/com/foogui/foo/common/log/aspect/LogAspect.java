@@ -1,11 +1,11 @@
-package com.foogui.foo.common.web.foo.common.log.aspect;
+package com.foogui.foo.common.log.aspect;
 
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.extra.servlet.ServletUtil;
-import com.foogui.foo.common.web.foo.api.dto.SysLogDTO;
-import com.foogui.foo.common.web.foo.common.core.enums.Action;
-import com.foogui.foo.common.web.foo.common.log.anotation.Log;
-import com.foogui.foo.common.web.foo.common.log.task.LogAsyncTask;
+import com.foogui.foo.common.log.anotation.Log;
+import com.foogui.foo.api.dto.SysLogDTO;
+import com.foogui.foo.common.core.enums.Action;
+import com.foogui.foo.common.log.task.LogAsyncTask;
 import com.foogui.foo.common.web.utils.ServletUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -31,7 +31,7 @@ public class LogAspect {
     /**
      * 约束所切注解的位置
      */
-    @Pointcut("@annotation(com.foogui.foo.common.web.foo.common.log.anotation.Log)")
+    @Pointcut("@annotation(com.foogui.foo.common.log.anotation.Log)")
     public void logPointCut() {
     }
 

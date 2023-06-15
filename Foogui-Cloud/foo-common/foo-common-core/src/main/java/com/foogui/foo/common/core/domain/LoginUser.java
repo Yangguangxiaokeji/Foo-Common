@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.common.core.domain;
+package com.foogui.foo.common.core.domain;
 
 import lombok.Data;
 

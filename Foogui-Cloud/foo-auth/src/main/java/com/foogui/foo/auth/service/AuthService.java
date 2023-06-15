@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.auth.service;
+package com.foogui.foo.auth.service;
 
 import com.foogui.foo.common.core.domain.Result;
 import com.foogui.foo.common.security.domain.LoginUser;

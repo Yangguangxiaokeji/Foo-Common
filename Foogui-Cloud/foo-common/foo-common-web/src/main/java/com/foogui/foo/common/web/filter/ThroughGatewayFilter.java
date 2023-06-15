@@ -1,8 +1,8 @@
 package com.foogui.foo.common.web.filter;
 
 import com.alibaba.fastjson2.JSON;
-import com.foogui.foo.common.web.foo.common.core.constant.HttpConstant;
-import com.foogui.foo.common.web.foo.common.core.domain.Result;
+import com.foogui.foo.common.core.constant.HttpConstant;
+import com.foogui.foo.common.core.domain.Result;
 import com.foogui.foo.common.web.utils.ServletUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
