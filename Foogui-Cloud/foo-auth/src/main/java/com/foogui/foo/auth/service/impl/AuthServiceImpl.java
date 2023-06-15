@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -76,7 +75,7 @@ public class AuthServiceImpl implements AuthService {
         // 30min有效
         String jwt = jwtUtil.createJwt(payload, Calendar.MINUTE, 30);
         // UserInfoDetail存入redis
-        redisObjectUtil.set(CacheConstant.LOGIN_TOKEN + userId, currentUser, 30L, TimeUnit.MINUTES);
+        redisObjectUtil.setObject(CacheConstant.LOGIN_TOKEN + userId, currentUser, 30*60L);
         // // todo：rpc记录登录log
         return Result.success(jwt,"登录成功");
     }
@@ -85,7 +84,7 @@ public class AuthServiceImpl implements AuthService {
     public Result<String> logout() {
         LoginUserDetail currentUser = SecurityUtils.getCurrentUser();
         String userId = currentUser.getLoginUser().getUserId();
-        redisObjectUtil.del(CacheConstant.LOGIN_TOKEN + userId);
+        redisObjectUtil.delete(CacheConstant.LOGIN_TOKEN + userId);
         // todo: 记录登出log
         return Result.success("退出成功");
     }

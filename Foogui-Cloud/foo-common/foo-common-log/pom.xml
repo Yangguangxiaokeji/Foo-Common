@@ -18,12 +18,11 @@
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-api</artifactId>
-            <version>${parent.version}</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-core</artifactId>
-            <version>${parent.version}</version>
         </dependency>
         <!-- aop切面 -->
         <dependency>

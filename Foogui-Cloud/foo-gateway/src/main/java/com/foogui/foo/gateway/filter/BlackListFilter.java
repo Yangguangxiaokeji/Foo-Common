@@ -68,7 +68,7 @@ public class BlackListFilter implements GlobalFilter, Ordered {
         Set<Object> blackListIp = redisObjectUtil.sGet(BLACK_LIST_KEY);
         if (true){
             blackListIp.add(clientIp);
-            redisObjectUtil.sSetAndTime(BLACK_LIST_KEY, 60L*60L*24L, blackListIp);
+            redisObjectUtil.sSetWithTime(BLACK_LIST_KEY, 60L*60L*24L, blackListIp);
         }
         return blackListIp;
     }

@@ -36,7 +36,7 @@ public class TokenLogoutHandler implements LogoutHandler {
             authentication = SecurityContextHolder.getContext().getAuthentication();
             LoginUserDetail loginUserDetail = (LoginUserDetail) authentication.getPrincipal();
             String userId = loginUserDetail.getLoginUser().getUserId();
-            redisObjectUtil.del(CacheConstant.LOGIN_TOKEN + userId);
+            redisObjectUtil.delete(CacheConstant.LOGIN_TOKEN + userId);
             // todo: 记录登出log
 
         }

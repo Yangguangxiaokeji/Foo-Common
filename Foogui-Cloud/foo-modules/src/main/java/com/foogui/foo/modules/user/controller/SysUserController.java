@@ -32,7 +32,7 @@ public class SysUserController {
 
     @PostMapping("/searchById/{id}")
     // @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    @PreAuthorize("hasRole('ROLE_uADMIN')")
+    @PreAuthorize("hasRole('ROLE_yADMIN')")
     public Result<SysUserVO> searchById(@PathVariable String id) {
         LOGGER.info("Searching id {}", id);
         return Result.success(sysUserService.getById(id).convert2VO());

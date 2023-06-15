@@ -5,9 +5,9 @@ import com.foogui.foo.common.core.constant.CacheConstant;
 import com.foogui.foo.common.core.constant.FilterOrderConstant;
 import com.foogui.foo.common.core.constant.HttpConstant;
 import com.foogui.foo.common.core.domain.LoginUser;
-import com.foogui.foo.common.core.exception.AuthException;
 import com.foogui.foo.common.core.utils.JwtUtil;
 import com.foogui.foo.common.redis.service.RedisObjectUtil;
+import com.foogui.foo.common.core.exception.AuthException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -21,6 +21,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
+
 
 /**
  * 鉴权过滤器
@@ -72,7 +73,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
             throw new AuthException("token不能为空");
         }
         String uuid = jwtUtil.verifyJwt(token, CacheConstant.LOGIN_TOKEN);
-        String userJson = redisObjectUtil.get(uuid, String.class);
+        String userJson = redisObjectUtil.getString(uuid, String.class);
         if (StringUtils.isNoneBlank(uuid,userJson)){
             LoginUser loginUser = JSONUtil.toBean(userJson, LoginUser.class);
             redisObjectUtil.expire(uuid, 30L * 60L);

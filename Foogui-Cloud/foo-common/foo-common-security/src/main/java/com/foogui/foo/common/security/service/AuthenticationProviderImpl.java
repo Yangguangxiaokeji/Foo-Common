@@ -49,8 +49,14 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
         }
     }
 
+    /**
+     * 表示该自定义的AuthenticationProvider只可以认证UsernamePasswordAuthenticationToken的认证对象
+     *
+     * @param authentication 身份验证
+     * @return boolean
+     */
     @Override
     public boolean supports(Class<?> authentication) {
-        return false;
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }

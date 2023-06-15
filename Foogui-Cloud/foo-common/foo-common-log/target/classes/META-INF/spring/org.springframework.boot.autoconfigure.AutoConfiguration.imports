@@ -1,3 +1,0 @@
-com.foogui.foo.common.log.LogModuleAutoConfiguration
-com.foogui.foo.common.log.config.LogExecutorConfiguration
-com.foogui.foo.common.log.config.ConfigProperties

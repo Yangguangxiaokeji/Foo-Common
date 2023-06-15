@@ -4,10 +4,7 @@ import com.foogui.foo.common.core.utils.JwtUtil;
 import com.foogui.foo.common.redis.service.RedisObjectUtil;
 import com.foogui.foo.common.security.filter.JwtAuthenticationFilter;
 import com.foogui.foo.common.security.filter.LoginEnterFilter;
-import com.foogui.foo.common.security.handler.CustomAccessDeniedHandler;
-import com.foogui.foo.common.security.handler.SuccessHandler;
-import com.foogui.foo.common.security.handler.TokenLogoutHandler;
-import com.foogui.foo.common.security.handler.UnAuthorizedEntryPoint;
+import com.foogui.foo.common.security.handler.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -74,11 +71,13 @@ public class WebSecurityNewConfig {
 
                 .cors().and()
                 .csrf().disable()       // 关闭csrf
-                // todo 暂时不好用
-                .exceptionHandling().authenticationEntryPoint(unAuthorizedEntryPoint()).and()       // 未授权处理
+
+                .exceptionHandling().authenticationEntryPoint(unAuthorizedEntryPoint()) // 认证失败异常处理
+                .accessDeniedHandler(unAccessDeniedHandler()) // 鉴权失败异常处理
+                .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()       // 禁用session
-                .authenticationProvider(authenticationProvider)
-                .userDetailsService(userDetailsService)
+                .authenticationProvider(authenticationProvider)     //  将自定义的AuthenticationProvider加入环境
+                .userDetailsService(userDetailsService)     //  将自定义的UserDetailsService加入环境
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)     // 新增自定义过滤器
                 .addFilterAt(loginEnterFilter(), UsernamePasswordAuthenticationFilter.class)
 
@@ -117,6 +116,10 @@ public class WebSecurityNewConfig {
         return new UnAuthorizedEntryPoint();
     }
 
+    @Bean
+    public UnAccessDeniedHandler unAccessDeniedHandler() {
+        return new UnAccessDeniedHandler();
+    }
 
 
 }

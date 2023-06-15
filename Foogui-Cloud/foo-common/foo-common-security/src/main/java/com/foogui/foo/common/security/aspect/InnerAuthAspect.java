@@ -1,7 +1,7 @@
 package com.foogui.foo.common.security.aspect;
 
 import com.foogui.foo.common.core.constant.HttpConstant;
-import com.foogui.foo.common.core.exception.AuthException;
+import com.foogui.foo.common.security.exception.SecurityAuthException;
 import com.foogui.foo.common.security.annotation.InnerAuth;
 import com.foogui.foo.common.core.utils.ServletUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -27,10 +27,10 @@ public class InnerAuthAspect {
         HttpServletRequest request = ServletUtils.getRequest();
         String header = request.getHeader(HttpConstant.REQUEST_SOURCE);
         if(StringUtils.isBlank(header)){
-            throw new AuthException("内部调用访问必须携带请求头:"+HttpConstant.REQUEST_SOURCE);
+            throw new SecurityAuthException("内部调用访问必须携带请求头:"+HttpConstant.REQUEST_SOURCE);
         }
         if(!StringUtils.equalsIgnoreCase(header, HttpConstant.INNER)){
-            throw new AuthException("内部调用访问必须携带请求头的值必须为:"+HttpConstant.INNER);
+            throw new SecurityAuthException("内部调用访问必须携带请求头的值必须为:"+HttpConstant.INNER);
         }
         return point.proceed();
     }

@@ -3,7 +3,7 @@ package com.foogui.foo.common.security.service;
 import com.foogui.foo.api.dto.SysUserDTO;
 import com.foogui.foo.api.service.FeignSysUserService;
 import com.foogui.foo.common.core.domain.Result;
-import com.foogui.foo.common.core.exception.AuthException;
+import com.foogui.foo.common.security.exception.SecurityAuthException;
 import com.foogui.foo.common.core.utils.SpringBeanUtils;
 import com.foogui.foo.common.security.domain.LoginUser;
 import com.foogui.foo.common.security.domain.LoginUserDetail;
@@ -39,11 +39,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         // todo：考虑rpc返回fail？
         SysUserDTO user = sysUserDTOResult.getData();
         if (user == null) {
-            throw new AuthException("用户名不存在或远程服务调用失败");
+            throw new SecurityAuthException("用户名不存在或远程服务调用失败");
         } else if ("1".equals(user.getStatus())) {
-            throw new AuthException("用户停用了");
+            throw new SecurityAuthException("用户停用了");
         } else if (user.getPermissions() == null) {
-            throw new AuthException("该用户无任何权限");
+            throw new SecurityAuthException("该用户无任何权限");
         }
         LoginUser loginUser =new LoginUser();
         BeanUtils.copyProperties(user, loginUser);

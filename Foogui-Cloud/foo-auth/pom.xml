@@ -10,7 +10,7 @@
 
     <groupId>com.foogui</groupId>
     <artifactId>foo-auth</artifactId>
-    <version>${parent.version}</version>
+    <version>1.0.0</version>
 
     <name>foo-auth</name>
     <description>foo-auth</description>
@@ -52,28 +52,28 @@
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-core</artifactId>
-            <version>${parent.version}</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-log</artifactId>
-            <version>${parent.version}</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-security</artifactId>
-            <version>${parent.version}</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-redis</artifactId>
-            <version>${parent.version}</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-api</artifactId>
-            <version>${parent.version}</version>
+            <version>1.0.0</version>
         </dependency>
 
     </dependencies>

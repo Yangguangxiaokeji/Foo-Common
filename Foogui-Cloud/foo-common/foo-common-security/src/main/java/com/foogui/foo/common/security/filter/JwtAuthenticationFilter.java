@@ -8,6 +8,7 @@ import com.foogui.foo.common.core.utils.ResponseUtils;
 import com.foogui.foo.common.core.utils.StringUtils;
 import com.foogui.foo.common.redis.service.RedisObjectUtil;
 import com.foogui.foo.common.security.domain.LoginUserDetail;
+import com.foogui.foo.common.security.exception.SecurityAuthException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -64,12 +65,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             try {
                 userId = jwtUtil.verifyJwt(token, CacheConstant.JWT_PAYLOAD_KEY);
             } catch (Exception e) {
-                ResponseUtils.write2frontFail(response, e.getMessage());
-                return;
+                throw new SecurityAuthException(e.getMessage());
             }
 
             // 从redis中获取用户信息
-            Object o = redisObjectUtil.get(CacheConstant.LOGIN_TOKEN + userId);
+            Object o = redisObjectUtil.getString(CacheConstant.LOGIN_TOKEN + userId);
             if (o == null) {
                 //todo： 跳转到login页面
                 ResponseUtils.write2frontFail(response, "登录已过期,请重新登录");
@@ -78,7 +78,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             LoginUserDetail loginUserDetail = (LoginUserDetail) o;
             Authentication authenticationToken = new UsernamePasswordAuthenticationToken(loginUserDetail, loginUserDetail.getPassword(), loginUserDetail.getAuthorities());
-            // 存入SecurityContextHolder
+            // 存入SecurityContextHolder，以便FilterSecurityInterceptor鉴权时会取认证对象
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             // 放行
             filterChain.doFilter(request, response);

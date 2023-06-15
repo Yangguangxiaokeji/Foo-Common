@@ -6,7 +6,10 @@ import com.foogui.foo.common.core.utils.ResponseUtils;
 import com.foogui.foo.common.core.utils.StringUtils;
 import com.foogui.foo.common.redis.service.RedisObjectUtil;
 import com.foogui.foo.common.security.domain.LoginUser;
+import com.foogui.foo.common.security.handler.UnAuthorizedEntryPoint;
 import com.foogui.foo.common.security.utils.SecurityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,6 +37,8 @@ import java.util.Collections;
  */
 
 public class LoginEnterFilter extends UsernamePasswordAuthenticationFilter {
+
+    private static final Logger logger = LoggerFactory.getLogger(UnAuthorizedEntryPoint.class);
 
     private AuthenticationProvider authenticationProvider;
 
@@ -96,9 +101,18 @@ public class LoginEnterFilter extends UsernamePasswordAuthenticationFilter {
 
     }
 
+    /**
+     * 不成功身份验证，只用于登录请求的处理
+     *
+     * @param request  请求
+     * @param response 响应
+     * @param failed   失败
+     * @throws IOException      ioexception
+     * @throws ServletException servlet异常
+     */
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
-        ResponseUtils.write2frontFail(response, "登录失败：TokenLoginFilter");
+        ResponseUtils.write2frontFail(response, failed.getMessage());
     }
 
 

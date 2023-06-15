@@ -3,7 +3,7 @@
 package com.foogui.foo.common.security.utils;
 
 import com.foogui.foo.common.core.constant.SecurityConstant;
-import com.foogui.foo.common.core.exception.AuthException;
+import com.foogui.foo.common.security.exception.SecurityAuthException;
 import com.foogui.foo.common.core.utils.StringUtils;
 import com.foogui.foo.common.security.domain.LoginUserDetail;
 import org.springframework.security.core.Authentication;
@@ -40,7 +40,7 @@ public class SecurityUtils {
      */
     public static LoginUserDetail getUserByAuthentication(Authentication authentication) {
         if (authentication == null) {
-            throw new AuthException("Authentication为空");
+            throw new SecurityAuthException("Authentication为空");
         }
         Object principal = authentication.getPrincipal();
         if (principal instanceof LoginUserDetail) {

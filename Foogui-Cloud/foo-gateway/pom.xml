@@ -10,7 +10,7 @@
 
     <groupId>com.foogui</groupId>
     <artifactId>foo-gateway</artifactId>
-    <version>${parent.version}</version>
+    <version>1.0.0</version>
 
     <name>foo-gateway</name>
     <description>foo-gateway网关模块</description>
@@ -58,27 +58,39 @@
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-log</artifactId>
-            <version>${parent.version}</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-core</artifactId>
-            <version>${parent.version}</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.foogui</groupId>
             <artifactId>foo-common-redis</artifactId>
-            <version>${parent.version}</version>
+            <version>1.0.0</version>
         </dependency>
+
 
     </dependencies>
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.foogui.foo.gateway.FooGatewayApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
