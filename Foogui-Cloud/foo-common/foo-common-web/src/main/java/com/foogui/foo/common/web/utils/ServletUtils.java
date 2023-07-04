@@ -1,7 +1,7 @@
 package com.foogui.foo.common.web.utils;
 
 import com.foogui.foo.common.core.constant.HttpConstant;
-import com.foogui.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.core.enums.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -104,7 +104,7 @@ public class ServletUtils {
     public static void render2Front(String result) {
         HttpServletResponse response = getResponse();
         if (response != null) {
-            response.setStatus(ResponseCode.SUCCESS.getCode());
+            response.setStatus(ErrorCode.SUCCESS.getCode());
             response.setContentType(HttpConstant.APPLICATION_JSON);
             response.setCharacterEncoding(HttpConstant.UTF_8);
             try (PrintWriter writer = response.getWriter()) {

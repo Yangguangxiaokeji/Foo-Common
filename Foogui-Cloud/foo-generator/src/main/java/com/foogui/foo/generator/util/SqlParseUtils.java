@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.generator.util;
+package com.foogui.foo.generator.util;
 
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.expression.Alias;

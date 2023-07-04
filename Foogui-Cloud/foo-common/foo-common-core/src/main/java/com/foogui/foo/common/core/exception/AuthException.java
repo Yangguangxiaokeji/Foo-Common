@@ -1,6 +1,6 @@
 package com.foogui.foo.common.core.exception;
 
-import com.foogui.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.core.enums.ErrorCode;
 import lombok.Data;
 
 @Data
@@ -19,14 +19,14 @@ public class AuthException extends RuntimeException{
         super(message, cause);
     }
 
-    public AuthException(ResponseCode responseCode) {
-        super(responseCode.getMessage());
-        this.code = responseCode.getCode();
+    public AuthException(ErrorCode errorCode) {
+        super(errorCode.getMessage());
+        this.code = errorCode.getCode();
 
     }
 
-    public AuthException(ResponseCode responseCode, Throwable cause) {
-        super(responseCode.getMessage(), cause);
-        this.code = responseCode.getCode();
+    public AuthException(ErrorCode errorCode, Throwable cause) {
+        super(errorCode.getMessage(), cause);
+        this.code = errorCode.getCode();
     }
 }

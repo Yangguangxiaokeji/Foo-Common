@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.generator.domain;
+package com.foogui.foo.generator.domain;
 
 import com.foogui.foo.common.mybatis.domain.BasePO;
 import lombok.Data;

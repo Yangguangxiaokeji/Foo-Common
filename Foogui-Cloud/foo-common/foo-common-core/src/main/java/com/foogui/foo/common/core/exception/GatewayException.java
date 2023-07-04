@@ -1,6 +1,6 @@
 package com.foogui.foo.common.core.exception;
 
-import com.foogui.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.core.enums.ErrorCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,16 +30,16 @@ public class GatewayException extends RuntimeException  {
         super(description, cause);
     }
 
-    public GatewayException(ResponseCode responseCode) {
-        super(responseCode.getMessage());
-        this.code = responseCode.getCode();
-        this.description = responseCode.getMessage();
+    public GatewayException(ErrorCode errorCode) {
+        super(errorCode.getMessage());
+        this.code = errorCode.getCode();
+        this.description = errorCode.getMessage();
 
     }
 
-    public GatewayException(ResponseCode responseCode, Throwable cause) {
-        super(responseCode.getMessage(), cause);
-        this.code = responseCode.getCode();
-        this.description = responseCode.getMessage();
+    public GatewayException(ErrorCode errorCode, Throwable cause) {
+        super(errorCode.getMessage(), cause);
+        this.code = errorCode.getCode();
+        this.description = errorCode.getMessage();
     }
 }

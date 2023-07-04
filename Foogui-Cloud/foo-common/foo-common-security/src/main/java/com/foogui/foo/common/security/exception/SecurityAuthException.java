@@ -1,6 +1,6 @@
 package com.foogui.foo.common.security.exception;
 
-import com.foogui.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.core.enums.ErrorCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.AuthenticationException;
@@ -26,14 +26,14 @@ public class SecurityAuthException extends AuthenticationException {
         super(message, cause);
     }
 
-    public SecurityAuthException(ResponseCode responseCode) {
-        super(responseCode.getMessage());
-        this.code = responseCode.getCode();
+    public SecurityAuthException(ErrorCode errorCode) {
+        super(errorCode.getMessage());
+        this.code = errorCode.getCode();
 
     }
 
-    public SecurityAuthException(ResponseCode responseCode, Throwable cause) {
-        super(responseCode.getMessage(), cause);
-        this.code = responseCode.getCode();
+    public SecurityAuthException(ErrorCode errorCode, Throwable cause) {
+        super(errorCode.getMessage(), cause);
+        this.code = errorCode.getCode();
     }
 }

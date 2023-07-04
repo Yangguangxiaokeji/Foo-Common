@@ -1,9 +1,9 @@
-package com.foogui.foo.common.web.foo.generator.service;
+package com.foogui.foo.generator.service;
 
-import com.foogui.foo.common.web.foo.generator.domain.Table;
-import com.foogui.foo.common.web.foo.generator.mapper.TableMapper;
-import com.foogui.foo.common.web.foo.generator.util.VelocityFactory;
-import com.foogui.foo.common.web.foo.generator.util.VelocityUtils;
+import com.foogui.foo.generator.domain.Table;
+import com.foogui.foo.generator.mapper.TableMapper;
+import com.foogui.foo.generator.util.VelocityFactory;
+import com.foogui.foo.generator.util.VelocityUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.velocity.Template;

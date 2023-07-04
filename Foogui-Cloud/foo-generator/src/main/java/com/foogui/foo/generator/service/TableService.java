@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.generator.service;
+package com.foogui.foo.generator.service;
 
 public interface TableService {
 

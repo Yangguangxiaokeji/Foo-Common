@@ -1,6 +1,6 @@
-package com.foogui.foo.common.web.foo.generator.util;
+package com.foogui.foo.generator.util;
 
-import com.foogui.foo.common.web.foo.generator.domain.Table;
+import com.foogui.foo.generator.domain.Table;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 

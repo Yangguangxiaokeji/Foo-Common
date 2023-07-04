@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SysUserFallbackFactory implements FeignSysUserService {
 
-
     @Override
     public Result<SysUserDTO> queryByUsername(String username) {
         log.info("queryByUsername超时，返回null");

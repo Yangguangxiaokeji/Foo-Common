@@ -1,6 +1,6 @@
-package com.foogui.foo.common.web.foo.generator.mapper;
+package com.foogui.foo.generator.mapper;
 
-import com.foogui.foo.common.web.foo.generator.domain.Table;
+import com.foogui.foo.generator.domain.Table;
 
 /**
  * 业务 数据层

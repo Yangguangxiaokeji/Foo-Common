@@ -1,6 +1,6 @@
 package com.foogui.foo.common.security.exception;
 
-import com.foogui.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.core.enums.ErrorCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.access.AccessDeniedException;
@@ -26,14 +26,14 @@ public class SecurityAuthorityException extends AccessDeniedException {
         super(message, cause);
     }
 
-    public SecurityAuthorityException(ResponseCode responseCode) {
-        super(responseCode.getMessage());
-        this.code = responseCode.getCode();
+    public SecurityAuthorityException(ErrorCode errorCode) {
+        super(errorCode.getMessage());
+        this.code = errorCode.getCode();
 
     }
 
-    public SecurityAuthorityException(ResponseCode responseCode, Throwable cause) {
-        super(responseCode.getMessage(), cause);
-        this.code = responseCode.getCode();
+    public SecurityAuthorityException(ErrorCode errorCode, Throwable cause) {
+        super(errorCode.getMessage(), cause);
+        this.code = errorCode.getCode();
     }
 }

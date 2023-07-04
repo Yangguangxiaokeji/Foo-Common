@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.foogui.foo.common.web.foo.generator.mapper.TableMapper">
+<mapper namespace="com.foogui.foo.generator.mapper.TableMapper">
 
 
-    <select id="selectRawTableInfo" resultType="com.foogui.foo.common.web.foo.generator.domain.Table">
+    <select id="selectRawTableInfo" resultType="com.foogui.foo.generator.domain.Table">
         select *
         from information_schema.tables
         where table_comment <![CDATA[ <> ]]> ''

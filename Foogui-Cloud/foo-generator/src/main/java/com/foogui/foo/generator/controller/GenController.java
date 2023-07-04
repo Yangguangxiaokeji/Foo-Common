@@ -1,6 +1,6 @@
-package com.foogui.foo.common.web.foo.generator.controller;
+package com.foogui.foo.generator.controller;
 
-import com.foogui.foo.common.web.foo.generator.service.TableService;
+import com.foogui.foo.generator.service.TableService;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

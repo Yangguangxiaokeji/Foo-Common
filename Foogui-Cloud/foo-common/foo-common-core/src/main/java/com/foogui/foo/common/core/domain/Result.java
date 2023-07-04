@@ -1,6 +1,6 @@
 package com.foogui.foo.common.core.domain;
 
-import com.foogui.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.core.enums.ErrorCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -48,7 +48,7 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> success(T data, String message) {
         Result<T> result = new Result<>();
         result.setSuccess(true);
-        result.setCode(ResponseCode.SUCCESS.getCode());
+        result.setCode(ErrorCode.SUCCESS.getCode());
         result.setMessage(message);
         result.setData(data);
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_PATTERN)));
@@ -56,7 +56,7 @@ public class Result<T> implements Serializable {
     }
 
     public static <T> Result<T> success(T data) {
-        return Result.success(data, ResponseCode.SUCCESS.getMessage());
+        return Result.success(data, ErrorCode.SUCCESS.getMessage());
     }
 
 
@@ -64,11 +64,11 @@ public class Result<T> implements Serializable {
         return success(null);
     }
 
-    public static <T> Result<T> fail(ResponseCode responseCode) {
+    public static <T> Result<T> fail(ErrorCode errorCode) {
         Result<T> result = new Result<>();
         result.setSuccess(false);
-        result.setCode(responseCode.getCode());
-        result.setMessage(responseCode.getMessage());
+        result.setCode(errorCode.getCode());
+        result.setMessage(errorCode.getMessage());
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_PATTERN)));
         return result;
     }
@@ -76,8 +76,8 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> fail(Throwable ex, T data) {
         Result<T> result = new Result<>();
         result.setSuccess(false);
-        result.setCode(ResponseCode.FAIL.getCode());
-        result.setMessage(ex != null ? ExceptionUtils.getRootCauseMessage(ex) : ResponseCode.FAIL.getMessage());
+        result.setCode(ErrorCode.FAIL.getCode());
+        result.setMessage(ex != null ? ExceptionUtils.getRootCauseMessage(ex) : ErrorCode.FAIL.getMessage());
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_PATTERN)));
         result.setData(data);
         return result;
@@ -94,7 +94,7 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> fail(String message) {
         Result<T> result = new Result<>();
         result.setSuccess(false);
-        result.setCode(ResponseCode.FAIL.getCode());
+        result.setCode(ErrorCode.FAIL.getCode());
         result.setMessage(message);
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_PATTERN)));
         result.setData(null);

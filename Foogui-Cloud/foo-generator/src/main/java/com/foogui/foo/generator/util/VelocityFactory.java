@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.generator.util;
+package com.foogui.foo.generator.util;
 
 import org.apache.velocity.app.Velocity;
 

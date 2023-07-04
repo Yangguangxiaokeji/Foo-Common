@@ -1,6 +1,6 @@
 package com.foogui.foo.common.core.exception;
 
-import com.foogui.foo.common.core.enums.ResponseCode;
+import com.foogui.foo.common.core.enums.ErrorCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,20 +28,25 @@ public class BizException extends RuntimeException {
         super(message);
     }
 
+    public BizException(int code,String message) {
+        super(message);
+        this.code = code;
+    }
+
     public BizException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public BizException(ResponseCode responseCode) {
-        super(responseCode.getMessage());
-        this.code = responseCode.getCode();
-        this.description = responseCode.getMessage();
+    public BizException(ErrorCode errorCode) {
+        super(errorCode.getMessage());
+        this.code = errorCode.getCode();
+        this.description = errorCode.getMessage();
 
     }
 
-    public BizException(ResponseCode responseCode, Throwable cause) {
-        super(responseCode.getMessage(), cause);
-        this.code = responseCode.getCode();
-        this.description = responseCode.getMessage();
+    public BizException(ErrorCode errorCode, Throwable cause) {
+        super(errorCode.getMessage(), cause);
+        this.code = errorCode.getCode();
+        this.description = errorCode.getMessage();
     }
 }

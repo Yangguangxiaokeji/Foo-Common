@@ -1,4 +1,4 @@
-package com.foogui.foo.common.web.foo.generator.mapper;
+package com.foogui.foo.generator.mapper;
 
 /**
  * 业务字段 数据层

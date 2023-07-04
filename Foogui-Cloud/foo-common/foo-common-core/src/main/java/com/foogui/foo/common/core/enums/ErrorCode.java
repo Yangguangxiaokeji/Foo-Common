@@ -9,7 +9,7 @@ import lombok.Getter;
  * @date 2023/05/02
  */
 @Getter
-public enum ResponseCode {
+public enum ErrorCode {
 
     // 错误码
     SUCCESS(200, "操作成功"),
@@ -21,6 +21,7 @@ public enum ResponseCode {
     PARAM_ERROR(400, "请求参数错误"),
     ERROR(500, "服务器内部出现错误"),
     FAIL(501, "操作失败"),
+    VALIDATION_ERROR(5002, "错误的参数"),
     UN_KNOWN(50001, "未知错误");
     /**
      * 编码
@@ -32,7 +33,7 @@ public enum ResponseCode {
      */
     private final String message;
 
-    ResponseCode(int code, String message) {
+    ErrorCode(int code, String message) {
         this.code = code;
         this.message = message;
     }
